@@ -11,10 +11,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        WebView  myWebView = (WebView)findViewById(R.id.webView);
+        WebView  myWebView = (WebView)findViewById(R.id.WebView);
         //標準ブラウザをキャンセル
         myWebView.setWebViewClient(new WebViewClient());
         //アプリ起動時に読み込むURL
-        myWebView.loadUrl("http://daddy-pool.work/static/daddypool.png");
+        myWebView.loadUrl("http://daddy-pool.work/api/stats");
     }
 }

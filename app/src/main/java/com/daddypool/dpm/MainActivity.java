@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
         //標準ブラウザをキャンセル
         myWebView.setWebViewClient(new WebViewClient());
         //アプリ起動時に読み込むURL
-        myWebView.loadUrl("http://daddy-pool.work/");
+        myWebView.loadUrl("http://daddy-pool.work/static/daddypool.png");
     }
 }

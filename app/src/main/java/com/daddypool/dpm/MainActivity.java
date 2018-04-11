@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         myWebView.loadUrl("http://daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe");
 
 
-
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
 
@@ -89,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
 
         // try-with-resources
         try (FileInputStream fileInputStream = openFileInput(file);
-             BufferedReader reader= new BufferedReader(
-                     new InputStreamReader(fileInputStream,"UTF-8"));
+             BufferedReader reader = new BufferedReader(
+                     new InputStreamReader(fileInputStream, "UTF-8"));
         ) {
 
             String lineBuffer;
-            while( (lineBuffer = reader.readLine()) != null ) {
-                text = lineBuffer ;
+            while ((lineBuffer = reader.readLine()) != null) {
+                text = lineBuffer;
             }
 
         } catch (IOException e) {
@@ -104,6 +103,5 @@ public class MainActivity extends AppCompatActivity {
 
         return text;
     }
-
 
 }

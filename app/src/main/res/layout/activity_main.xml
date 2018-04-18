@@ -70,37 +70,30 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textDiffData"
         android:layout_width="70dp"
         android:layout_height="20dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/WebView"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/textDiffTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textDiffTitle"
         android:layout_width="33dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Diff:"
-        app:layout_constraintBottom_toTopOf="@+id/WebView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintVertical_bias="0.0"
         tools:textColor="@android:color/holo_blue_bright" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textHashTitle"
         android:layout_width="101dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -109,23 +102,66 @@
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:text="hashrateString:"
-        app:layout_constraintBottom_toTopOf="@+id/WebView"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintEnd_toStartOf="@+id/textHashData"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintVertical_bias="0.0"
         tools:textColor="@android:color/holo_blue_bright" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textHashData"
         android:layout_width="106dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="28dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/WebView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/textBalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:text="balance:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDiffTitle"
+        tools:textColor="@android:color/holo_blue_bright" />
+
+    <TextView
+        android:id="@+id/textBalData"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textBalTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textDiffData" />
+
+    <TextView
+        android:id="@+id/textPaidTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:text="Paid:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHashTitle"
+        tools:textColor="@android:color/holo_blue_bright" />
+
+    <TextView
+        android:id="@+id/textPaidData"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textBalData"
+        app:layout_constraintTop_toBottomOf="@+id/textHashData" />
 </android.support.constraint.ConstraintLayout>

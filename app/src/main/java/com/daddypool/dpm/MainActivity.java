@@ -34,23 +34,27 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<JSONObject> {
     private TextView textView;
-    private TextView textView3;
-    private TextView textView6;
+    private TextView textDiffData;
+    private TextView textHashData;
+    private TextView textBalData;
+    private TextView textPaidData;
     private EditText editText;
     private String fileName = "Address.txt";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView3 = findViewById(R.id.textView3);
-        textView6 = findViewById(R.id.textView6);
+        textDiffData = findViewById(R.id.textDiffData);
+        textHashData = findViewById(R.id.textHashData);
+        textBalData = findViewById(R.id.textBalData);
+        textPaidData = findViewById(R.id.textPaidData);
         // JSONの取得
         getLoaderManager().restartLoader(1, null, this);
-        WebView  myWebView = (WebView)findViewById(R.id.WebView);
+     //   WebView  myWebView = (WebView)findViewById(R.id.WebView);
         //標準ブラウザをキャンセル
-        myWebView.setWebViewClient(new WebViewClient());
+     //   myWebView.setWebViewClient(new WebViewClient());
         //アプリ起動時に読み込むURL
-        myWebView.loadUrl("http://daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe");
+     //   myWebView.loadUrl("http://daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe");
 
 
         textView = findViewById(R.id.textView2);
@@ -165,8 +169,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 JSONObject jsonObject = data.getJSONObject("workers");
 
 
-                textView3.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
-                textView6.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
+                textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
+                textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
+                textBalData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("balance"));
+                textPaidData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("paid"));
 
 //                textView3.setText(jsonObject.getString("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe"));
             } catch (JSONException e) {

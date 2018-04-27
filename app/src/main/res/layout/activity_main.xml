@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.daddypool.dpm.MainActivity">
-
 
 
     <com.google.android.gms.ads.AdView
@@ -32,8 +31,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="74dp"
+        android:layout_height="37dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -48,139 +47,145 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="176dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="59dp"
+        android:layout_height="18dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Bitzenyアドレス!!"
+        android:layout_marginTop="8dp"
+        android:text="Address"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="360dp"
-        android:layout_height="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
-
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.0"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textView"
+        ads:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="359dp"
-        android:layout_height="36dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Address"
         android:textSize="12sp"
+        ads:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textDiffData"
-        android:layout_width="70dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="71dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textDiffTitle"
-        app:layout_constraintTop_toBottomOf="@+id/textMyData" />
+        app:layout_constraintTop_toBottomOf="@+id/textHashData" />
 
     <TextView
         android:id="@+id/textDiffTitle"
         android:layout_width="33dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="Diff:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMyData"
+        android:textColor="@android:color/holo_blue_bright"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.453"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textHashTitle"
         tools:textColor="@android:color/holo_blue_bright" />
 
     <TextView
         android:id="@+id/textHashTitle"
-        android:layout_width="101dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
-        android:text="hashrateString:"
+        android:text="hashrate:"
+        android:textColor="@android:color/holo_blue_bright"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintHorizontal_bias="0.784"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textMyData"
+        ads:layout_constraintVertical_bias="0.0"
         app:layout_constraintEnd_toStartOf="@+id/textHashData"
-        app:layout_constraintTop_toBottomOf="@+id/textMyData"
         tools:textColor="@android:color/holo_blue_bright" />
 
     <TextView
         android:id="@+id/textHashData"
-        android:layout_width="106dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="121dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="40dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMyData" />
+        ads:layout_constraintTop_toBottomOf="@+id/textMyData"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textBalTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:text="balance:"
+        android:textColor="@android:color/holo_blue_bright"
+        ads:layout_constraintTop_toBottomOf="@+id/textHashTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDiffTitle"
         tools:textColor="@android:color/holo_blue_bright" />
 
     <TextView
         android:id="@+id/textBalData"
-        android:layout_width="106dp"
+        android:layout_width="101dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/textBalTitle"
-        app:layout_constraintTop_toBottomOf="@+id/textDiffData" />
+        ads:layout_constraintTop_toTopOf="@+id/textDiffData"
+        app:layout_constraintStart_toEndOf="@+id/textBalTitle" />
 
     <TextView
         android:id="@+id/textPaidTitle"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="160dp"
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:text="Paid:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textHashTitle"
+        android:textColor="@android:color/holo_blue_bright"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textBalTitle"
         tools:textColor="@android:color/holo_blue_bright" />
 
     <TextView
         android:id="@+id/textPaidData"
-        android:layout_width="106dp"
+        android:layout_width="102dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/textBalData"
-        app:layout_constraintTop_toBottomOf="@+id/textHashData" />
+        ads:layout_constraintStart_toEndOf="@+id/textPaidTitle"
+        ads:layout_constraintTop_toBottomOf="@+id/textBalData" />
 
     <TextView
         android:id="@+id/textPoolStats"
@@ -199,14 +204,13 @@
         android:id="@+id/textWorkers"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="Workers"
-        app:layout_constraintBottom_toTopOf="@+id/textHash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPoolStats"
-        app:layout_constraintVertical_bias="0.593" />
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.588"
+        ads:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMiner" />
 
     <TextView
         android:id="@+id/textWorkersData"
@@ -214,7 +218,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="xxx"
+        android:textColor="#ff0000"
         app:layout_constraintEnd_toStartOf="@+id/textWorkers"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -226,10 +231,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="100dp"
         android:text="●MyData"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPoolStats" />
 
@@ -237,9 +242,13 @@
         android:id="@+id/textMinerData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="xxx"
+        android:textColor="#ff0000"
+        app:layout_constraintEnd_toStartOf="@+id/textMiner"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPoolStats" />
 
@@ -255,17 +264,74 @@
 
     <TextView
         android:id="@+id/textHash"
-        android:layout_width="123dp"
-        android:layout_height="17dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="160dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="xxxKH/s"
+        android:textColor="#ff0000"
+        ads:layout_constraintHorizontal_bias="0.827"
+        ads:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/textMyData"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPoolStats"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textWorkers"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textLuckDayTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:text="LuckDay"
+        android:textColor="@android:color/holo_blue_bright"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textPaidTitle" />
+
+    <TextView
+        android:id="@+id/textLuckDayData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="TextView"
+        ads:layout_constraintStart_toEndOf="@+id/textLuckDayTitle"
+        ads:layout_constraintTop_toBottomOf="@+id/textPaidData" />
+
+    <TextView
+        android:id="@+id/textLuckHoursTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:text="LuckHours"
+        android:textColor="@android:color/holo_blue_bright"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textLuckDayTitle" />
+
+    <TextView
+        android:id="@+id/textLuckHoursData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="TextView"
+        ads:layout_constraintStart_toEndOf="@+id/textLuckHoursTitle"
+        ads:layout_constraintTop_toBottomOf="@+id/textLuckDayData" />
+
+    <TextView
+        android:id="@+id/textSharesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:text="Shares"
+        android:textColor="@android:color/holo_blue_bright"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textLuckHoursTitle" />
+
+    <TextView
+        android:id="@+id/textSharesData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="TextView"
+        ads:layout_constraintStart_toEndOf="@+id/textSharesTitle"
+        ads:layout_constraintTop_toBottomOf="@+id/textLuckHoursData" />
 </android.support.constraint.ConstraintLayout>

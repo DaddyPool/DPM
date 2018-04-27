@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView textWorkersData;
     private TextView textMinerData;
     private TextView textHashu;
+    private TextView textLuckDayData;
+    private TextView textLuckHoursData;
+    private TextView textSharesData;
     private EditText editText;
     private String fileName = "Address.txt";
     @Override
@@ -64,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textWorkersData = findViewById(R.id.textWorkersData);
         textMinerData = findViewById(R.id.textMinerData);
         textHashu = findViewById(R.id.textHash);
+        textLuckDayData = findViewById(R.id.textLuckDayData);
+        textLuckHoursData = findViewById(R.id.textLuckHoursData);
+        textSharesData = findViewById(R.id.textSharesData);
         // JSONの取得
         getLoaderManager().restartLoader(1, null, this);
         getLoaderManager().restartLoader(2, null, this);
@@ -202,6 +208,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
                     textBalData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("balance"));
                     textPaidData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("paid"));
+                    textLuckDayData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckDays"));
+                    textLuckHoursData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckHours"));
+                    textSharesData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("shares"));
                 }
                 if (loader.getId()==2){
                     JSONObject jsonObject = data.getJSONObject("pools");

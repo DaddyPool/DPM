@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView textHashData;
     private TextView textBalData;
     private TextView textPaidData;
+    private TextView textWorkersData;
+    private TextView textMinerData;
+    private TextView textHashu;
     private EditText editText;
     private String fileName = "Address.txt";
     @Override
@@ -58,8 +61,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textHashData = findViewById(R.id.textHashData);
         textBalData = findViewById(R.id.textBalData);
         textPaidData = findViewById(R.id.textPaidData);
+        textWorkersData = findViewById(R.id.textWorkersData);
+        textMinerData = findViewById(R.id.textMinerData);
+        textHashu = findViewById(R.id.textHash);
         // JSONの取得
         getLoaderManager().restartLoader(1, null, this);
+        getLoaderManager().restartLoader(2, null, this);
      //   WebView  myWebView = (WebView)findViewById(R.id.WebView);
         //標準ブラウザをキャンセル
      //   myWebView.setWebViewClient(new WebViewClient());
@@ -165,10 +172,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<JSONObject> onCreateLoader(int id, Bundle args) {
-        String urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe.json";
+
+        String urlText = "";
+
+        if (id == 1){
+
+         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
+
+        }
+        if (id == 2){
+            urlText = "http://zny.daddy-pool.work/api/stats";
+        }
         AsyncJsonLoader jsonLoader = new AsyncJsonLoader(this, urlText);
         jsonLoader.forceLoad();
         return  jsonLoader;
+
     }
 
     @Override
@@ -176,13 +194,22 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data != null) {
 
             try {
-                JSONObject jsonObject = data.getJSONObject("workers");
+                if (loader.getId()==1){
+                    JSONObject jsonObject = data.getJSONObject("workers");
 
 
-                textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
-                textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
-                textBalData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("balance"));
-                textPaidData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("paid"));
+                    textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
+                    textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
+                    textBalData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("balance"));
+                    textPaidData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("paid"));
+                }
+                if (loader.getId()==2){
+                    JSONObject jsonObject = data.getJSONObject("pools");
+                    textWorkersData.setText(jsonObject.getJSONObject("bitzeny").getString("workerCount"));
+                    textMinerData.setText(jsonObject.getJSONObject("bitzeny").getString("minerCount"));
+                    textHashu.setText(jsonObject.getJSONObject("bitzeny").getString("hashrateString"));
+                }
+
 
 //                textView3.setText(jsonObject.getString("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe"));
             } catch (JSONException e) {

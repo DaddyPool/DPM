@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView textSharesData;
     private EditText editText;
     private String fileName = "Address.txt";
+    private String text ="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +83,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textLuckDayData = findViewById(R.id.textLuckDayData);
         textLuckHoursData = findViewById(R.id.textLuckHoursData);
         textSharesData = findViewById(R.id.textSharesData);
-        // JSONの取得
-        getLoaderManager().restartLoader(1, null, this);
-        getLoaderManager().restartLoader(2, null, this);
+
      //   WebView  myWebView = (WebView)findViewById(R.id.WebView);
         //標準ブラウザをキャンセル
      //   myWebView.setWebViewClient(new WebViewClient());
@@ -99,16 +98,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String str = readFile(fileName);
         if (str != null) {
             textView.setText(str);
+            editText.setText(str);
         } else {
             textView.setText(R.string.read_error);
         }
+        // エディットテキストのテキストを取得
+        text = editText.getText().toString();
 
-        Button buttonSave = findViewById(R.id.button);
+        // JSONの取得
+        GetJsonData();
+
+        // JSONの取得
+//        //MyData 用
+//        getLoaderManager().restartLoader(1, null, this);
+//        //PoolStats 用
+//        getLoaderManager().restartLoader(2, null, this);
+        final Button buttonSave = findViewById(R.id.button);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // エディットテキストのテキストを取得
-                String text = editText.getText().toString();
+                text = editText.getText().toString();
+                // JSONの取得
+                GetJsonData();
 
                 saveFile(fileName, text);
                 if(text.length() == 0){
@@ -126,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             }
         });
+
     }
 
     // ファイルを保存
@@ -165,39 +178,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return text;
     }
 
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
     @Override
     public Loader<JSONObject> onCreateLoader(int id, Bundle args) {
 
         String urlText = "";
 
+        //MyData 用Json取得　API（http://zny.daddy-pool.work/api/worker_stats?）
         if (id == 1){
-
-         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
-
+//         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
+            urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
         }
+
+        //PoolStats 用Json取得　API（http://zny.daddy-pool.work/api/stats）
         if (id == 2){
             urlText = "http://zny.daddy-pool.work/api/stats";
         }
@@ -212,18 +204,26 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data != null) {
 
             try {
+                //MyData の表示
                 if (loader.getId()==1){
                     JSONObject jsonObject = data.getJSONObject("workers");
+                    textDiffData.setText(jsonObject.getJSONObject(text).getString("diff"));
+                    textHashData.setText(jsonObject.getJSONObject(text).getString("hashrateString"));
+                    textBalData.setText(jsonObject.getJSONObject(text).getString("balance"));
+                    textPaidData.setText(jsonObject.getJSONObject(text).getString("paid"));
+                    textLuckDayData.setText(jsonObject.getJSONObject(text).getString("luckDays"));
+                    textLuckHoursData.setText(jsonObject.getJSONObject(text).getString("luckHours"));
+                    textSharesData.setText(jsonObject.getJSONObject(text).getString("shares"));
 
-
-                    textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
-                    textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
-                    textBalData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("balance"));
-                    textPaidData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("paid"));
-                    textLuckDayData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckDays"));
-                    textLuckHoursData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckHours"));
-                    textSharesData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("shares"));
+//                    textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
+//                    textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
+//                    textBalData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("balance"));
+//                    textPaidData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("paid"));
+//                    textLuckDayData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckDays"));
+//                    textLuckHoursData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckHours"));
+//                    textSharesData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("shares"));
                 }
+                //PoolStatsの表示
                 if (loader.getId()==2){
                     JSONObject jsonObject = data.getJSONObject("pools");
                     textWorkersData.setText(jsonObject.getJSONObject("bitzeny").getString("workerCount"));
@@ -231,8 +231,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textHashu.setText(jsonObject.getJSONObject("bitzeny").getString("hashrateString"));
                 }
 
-
-//                textView3.setText(jsonObject.getString("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe"));
             } catch (JSONException e) {
                 Log.d("onLoadFinished","JSONのパースに失敗しました。 JSONException=" + e);
             }
@@ -245,4 +243,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<JSONObject> loader) {
         // 処理なし
     }
+
+    //APIからJson
+     public void GetJsonData() {
+        // JSONの取得
+        //MyData 用
+        getLoaderManager().restartLoader(1, null, this);
+        //PoolStats 用
+        getLoaderManager().restartLoader(2, null, this);
+    }
+
 }

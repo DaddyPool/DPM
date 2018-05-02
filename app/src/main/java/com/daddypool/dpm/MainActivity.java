@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setSupportActionBar(toolbar);
 
         // アイコンを指定
-        toolbar.setNavigationIcon(R.drawable.ic_daddypool48);
+        toolbar.setNavigationIcon(R.drawable.daddypool48);
 
         //>>  広告用
         AdView mAdView = findViewById(R.id.adView);

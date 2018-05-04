@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.daddypool.dpm", appContext.getPackageName());
+        assertEquals("com.ic_launcher.dpm", appContext.getPackageName());
     }
 }

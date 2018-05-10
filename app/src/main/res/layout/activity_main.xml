@@ -13,59 +13,24 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        ads:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
-
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="381dp"
-        android:layout_height="43dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPaidData"
-        app:layout_constraintVertical_bias="1.0"></com.google.android.gms.ads.AdView>
-
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="370dp"
-        android:layout_height="123dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textSharesTitle"
-        ads:layout_constraintVertical_bias="0.0"
-        ads:srcCompat="@drawable/test" />
+        ads:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/button"
         android:layout_width="74dp"
         android:layout_height="37dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="284dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:text="更新"
         ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        ads:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/textView"
@@ -75,286 +40,316 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Address"
-        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintEnd_toStartOf="@+id/button"
+        ads:layout_constraintHorizontal_bias="0.036"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0" />
+        ads:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.0"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textView"
-        ads:layout_constraintVertical_bias="0.0" />
+        ads:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="359dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Address"
         android:textSize="12sp"
-        ads:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textDiffData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/textDiffTitle"
-        app:layout_constraintTop_toBottomOf="@+id/textHashData" />
-
-    <TextView
-        android:id="@+id/textDiffTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="29dp"
-        android:text="Diff:"
-        android:textColor="@android:color/holo_blue_bright"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.432"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textHashTitle"
-        tools:textColor="@android:color/holo_blue_bright" />
-
-    <TextView
-        android:id="@+id/textHashTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="136dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:text="hashrate:"
-        android:textColor="@android:color/holo_blue_bright"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintEnd_toStartOf="@+id/textHashData"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textMyData"
-        ads:layout_constraintVertical_bias="0.0"
-        app:layout_constraintEnd_toStartOf="@+id/textHashData"
-        tools:textColor="@android:color/holo_blue_bright" />
-
-    <TextView
-        android:id="@+id/textHashData"
-        android:layout_width="121dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:text="TextView"
-        ads:layout_constraintTop_toBottomOf="@+id/textMyData"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textBalTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:text="balance:"
-        android:textColor="@android:color/holo_blue_bright"
-        ads:layout_constraintTop_toBottomOf="@+id/textHashTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:textColor="@android:color/holo_blue_bright" />
-
-    <TextView
-        android:id="@+id/textBalData"
-        android:layout_width="101dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        ads:layout_constraintTop_toTopOf="@+id/textDiffData"
-        app:layout_constraintStart_toEndOf="@+id/textBalTitle" />
-
-    <TextView
-        android:id="@+id/textPaidTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginStart="164dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:text="Paid:"
-        android:textColor="@android:color/holo_blue_bright"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textBalTitle"
-        tools:textColor="@android:color/holo_blue_bright" />
-
-    <TextView
-        android:id="@+id/textPaidData"
-        android:layout_width="102dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        ads:layout_constraintStart_toEndOf="@+id/textPaidTitle"
-        ads:layout_constraintTop_toBottomOf="@+id/textBalData" />
+        ads:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textPoolStats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="●Bitzeny Pool Stats"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-
-    <TextView
-        android:id="@+id/textWorkers"
-        android:layout_width="wrap_content"
-        android:layout_height="18dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Workers"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.588"
         ads:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMiner" />
+        ads:layout_constraintTop_toBottomOf="@+id/editText" />
 
-    <TextView
-        android:id="@+id/textWorkersData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="xxx"
-        android:textColor="#ff0000"
-        app:layout_constraintEnd_toStartOf="@+id/textWorkers"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMinerData" />
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="237dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="8dp"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textPoolStats">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textMinerData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textColor="#ff0000"
+                tools:layout_editor_absoluteX="321dp"
+                tools:layout_editor_absoluteY="163dp" />
+
+            <TextView
+                android:id="@+id/textMiner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Miners"
+                tools:layout_editor_absoluteX="342dp"
+                tools:layout_editor_absoluteY="163dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textWorkersData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textColor="#ff0000"
+                tools:layout_editor_absoluteX="173dp"
+                tools:layout_editor_absoluteY="181dp" />
+
+            <TextView
+                android:id="@+id/textWorkers"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:text="Workers"
+                tools:layout_editor_absoluteX="194dp"
+                tools:layout_editor_absoluteY="181dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textHash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxxKH/s"
+                android:textColor="#ff0000"
+                tools:layout_editor_absoluteX="332dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </TableRow>
+
+    </TableLayout>
 
     <TextView
         android:id="@+id/textMyData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="8dp"
         android:text="●MyData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPoolStats" />
-
-    <TextView
-        android:id="@+id/textMinerData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="8dp"
-        android:text="xxx"
-        android:textColor="#ff0000"
-        app:layout_constraintEnd_toStartOf="@+id/textMiner"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPoolStats" />
-
-    <TextView
-        android:id="@+id/textMiner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="148dp"
-        android:layout_marginTop="8dp"
-        android:text="Miners"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPoolStats" />
-
-    <TextView
-        android:id="@+id/textHash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginStart="8dp"
-        android:text="xxxKH/s"
-        android:textColor="#ff0000"
-        ads:layout_constraintHorizontal_bias="1.0"
         ads:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/textMyData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textWorkers"
-        app:layout_constraintVertical_bias="0.0" />
+        ads:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
-    <TextView
-        android:id="@+id/textLuckDayTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="138dp"
-        android:text="LuckDay:"
-        android:textColor="@android:color/holo_blue_bright"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textPaidTitle" />
-
-    <TextView
-        android:id="@+id/textLuckDayData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        ads:layout_constraintStart_toEndOf="@+id/textLuckDayTitle"
-        ads:layout_constraintTop_toBottomOf="@+id/textPaidData" />
-
-    <TextView
-        android:id="@+id/textLuckHoursTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="243dp"
+        android:layout_height="131dp"
         android:layout_marginStart="124dp"
-        android:text="LuckHours:"
-        android:textColor="@android:color/holo_blue_bright"
+        android:layout_marginTop="8dp"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textLuckDayTitle" />
+        ads:layout_constraintTop_toBottomOf="@+id/textMyData">
 
-    <TextView
-        android:id="@+id/textLuckHoursData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        ads:layout_constraintStart_toEndOf="@+id/textLuckHoursTitle"
-        ads:layout_constraintTop_toBottomOf="@+id/textLuckDayData" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textSharesTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="147dp"
-        android:text="Shares:"
-        android:textColor="@android:color/holo_blue_bright"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textLuckHoursTitle" />
+            <TextView
+                android:id="@+id/textHashTitle"
+                android:layout_width="65dp"
+                android:layout_height="18dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:text="hashrate:"
+                android:textColor="@android:color/holo_blue_bright"
+                tools:layout_editor_absoluteX="198dp"
+                tools:layout_editor_absoluteY="181dp"
+                tools:textColor="@android:color/holo_blue_bright" />
 
-    <TextView
-        android:id="@+id/textSharesData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        ads:layout_constraintStart_toEndOf="@+id/textSharesTitle"
-        ads:layout_constraintTop_toBottomOf="@+id/textLuckHoursData" />
+            <TextView
+                android:id="@+id/textHashData"
+                android:layout_width="121dp"
+                android:layout_height="18dp"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="263dp"
+                tools:layout_editor_absoluteY="181dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textDiffTitle"
+                android:layout_width="33dp"
+                android:layout_height="18dp"
+                android:text="Diff:"
+                android:textColor="@android:color/holo_blue_bright"
+                tools:layout_editor_absoluteX="121dp"
+                tools:layout_editor_absoluteY="199dp"
+                tools:textColor="@android:color/holo_blue_bright" />
+
+            <TextView
+                android:id="@+id/textDiffData"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textBalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:text="balance:"
+                android:textColor="@android:color/holo_blue_bright"
+                tools:layout_editor_absoluteX="140dp"
+                tools:layout_editor_absoluteY="215dp"
+                tools:textColor="@android:color/holo_blue_bright" />
+
+            <TextView
+                android:id="@+id/textBalData"
+                android:layout_width="101dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="53dp"
+                tools:layout_editor_absoluteY="215dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textPaidTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:text="Paid:"
+                android:textColor="@android:color/holo_blue_bright"
+                tools:layout_editor_absoluteX="160dp"
+                tools:layout_editor_absoluteY="234dp"
+                tools:textColor="@android:color/holo_blue_bright" />
+
+            <TextView
+                android:id="@+id/textPaidData"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="223dp"
+                tools:layout_editor_absoluteY="234dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textLuckDayTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LuckDay"
+                android:textColor="@android:color/holo_blue_bright"
+                tools:layout_editor_absoluteX="140dp"
+                tools:layout_editor_absoluteY="250dp" />
+
+            <TextView
+                android:id="@+id/textLuckDayData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="225dp"
+                tools:layout_editor_absoluteY="253dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textLuckHoursTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LuckHours"
+                android:textColor="@android:color/holo_blue_bright"
+                tools:layout_editor_absoluteX="124dp"
+                tools:layout_editor_absoluteY="269dp" />
+
+            <TextView
+                android:id="@+id/textLuckHoursData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="223dp"
+                tools:layout_editor_absoluteY="272dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textSharesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shares"
+                android:textColor="@android:color/holo_blue_bright"
+                tools:layout_editor_absoluteX="148dp"
+                tools:layout_editor_absoluteY="287dp" />
+
+            <TextView
+                android:id="@+id/textSharesData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="223dp"
+                tools:layout_editor_absoluteY="290dp" />
+        </TableRow>
+    </TableLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="370dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="8dp"
+        ads:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+        ads:srcCompat="@drawable/test"
+        tools:layout_editor_absoluteX="7dp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="381dp"
+        android:layout_height="43dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 
 </android.support.constraint.ConstraintLayout>

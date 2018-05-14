@@ -93,7 +93,7 @@
 
             <TextView
                 android:id="@+id/textMinerData"
-                android:layout_width="wrap_content"
+                android:layout_width="68dp"
                 android:layout_height="wrap_content"
                 android:text="xxx"
                 android:textColor="#ff0000"
@@ -139,6 +139,7 @@
                 android:id="@+id/textHash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="2"
                 android:text="xxxKH/s"
                 android:textColor="#ff0000"
                 tools:layout_editor_absoluteX="332dp"
@@ -292,7 +293,7 @@
 
             <TextView
                 android:id="@+id/textLuckHoursTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:text="LuckHours"
                 android:textColor="@android:color/holo_blue_bright"
@@ -331,15 +332,29 @@
         </TableRow>
     </TableLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="370dp"
-        android:layout_height="123dp"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="344dp"
         android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:padding="16dp"
         ads:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        ads:srcCompat="@drawable/test"
-        tools:layout_editor_absoluteX="7dp" />
+        tools:layout_editor_absoluteX="0dp">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textSize="20sp" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="381dp"

@@ -40,6 +40,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Address"
+        android:visibility="invisible"
         ads:layout_constraintEnd_toStartOf="@+id/button"
         ads:layout_constraintHorizontal_bias="0.036"
         ads:layout_constraintStart_toStartOf="parent"
@@ -52,6 +53,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe"
+        android:visibility="invisible"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -60,7 +62,6 @@
         android:layout_width="359dp"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Address"
@@ -335,7 +336,6 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="344dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:padding="16dp"
         ads:layout_constraintTop_toBottomOf="@+id/tableLayout2"

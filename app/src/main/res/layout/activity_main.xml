@@ -33,29 +33,15 @@
         ads:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="59dp"
-        android:layout_height="18dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Address"
-        android:visibility="invisible"
-        ads:layout_constraintEnd_toStartOf="@+id/button"
-        ads:layout_constraintHorizontal_bias="0.036"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="13dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="68dp"
         android:text="ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe"
         android:visibility="invisible"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textView" />
+        ads:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText"
@@ -333,28 +319,21 @@
         </TableRow>
     </TableLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="344dp"
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="170dp"
         android:orientation="vertical"
         android:padding="16dp"
         ads:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/app_name"
-            android:textSize="20sp" />
+        tools:layout_editor_absoluteX="8dp">
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/line_chart"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="198dp" />
 
     </LinearLayout>
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="381dp"

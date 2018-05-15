@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String fileName = "Address.txt";
     private String text ="";
     private LineChart mChart;
+    private int test;
+    private String aaa="50";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -245,6 +247,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (id == 2){
             urlText = "http://zny.daddy-pool.work/api/stats";
         }
+        //グラフ 用Json取得　API（http://zny.daddy-pool.work/api/worker_stats?）
+        if (id == 3){
+//         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
+            urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
+        }
         AsyncJsonLoader jsonLoader = new AsyncJsonLoader(this, urlText);
         jsonLoader.forceLoad();
         return  jsonLoader;
@@ -266,6 +273,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textLuckDayData.setText(jsonObject.getJSONObject(text).getString("luckDays"));
                     textLuckHoursData.setText(jsonObject.getJSONObject(text).getString("luckHours"));
                     textSharesData.setText(jsonObject.getJSONObject(text).getString("shares"));
+                    String aaa=jsonObject.getJSONObject(text).getString("paid");
 
 //                    textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
 //                    textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
@@ -281,6 +289,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textWorkersData.setText(jsonObject.getJSONObject("bitzeny").getString("workerCount"));
                     textMinerData.setText(jsonObject.getJSONObject("bitzeny").getString("minerCount"));
                     textHashu.setText(jsonObject.getJSONObject("bitzeny").getString("hashrateString"));
+                }
+                if (loader.getId()==3){
+                    JSONObject jsonObject = data.getJSONObject("history");
                 }
 
             } catch (JSONException e) {
@@ -303,11 +314,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         getLoaderManager().restartLoader(1, null, this);
         //PoolStats 用
         getLoaderManager().restartLoader(2, null, this);
+         //グラフ 用
+        getLoaderManager().restartLoader(3, null, this);
     }
     //グラフ追加
     private void setData() {
         // Entry()を使ってLineDataSetに設定できる形に変更してarrayを新しく作成
-        int data[] = {116, 111, 112, 121, 102, 83,
+        int test = Integer.parseInt(aaa);
+        int data[] = {test, 130, 112, 121, 102, 83,
                 99, 101, 74, 105, 120, 112,
                 109, 102, 107, 93, 82, 99, 110,
         };

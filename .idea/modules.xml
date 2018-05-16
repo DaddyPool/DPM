@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DPM.iml" filepath="$PROJECT_DIR$/DPM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/DPM-app.iml" filepath="$PROJECT_DIR$/app/DPM-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/daddypool.iml" filepath="$PROJECT_DIR$/daddypool.iml" />
     </modules>
   </component>
 </project>

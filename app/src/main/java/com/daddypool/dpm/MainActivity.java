@@ -69,12 +69,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView textLuckDayData;
     private TextView textLuckHoursData;
     private TextView textSharesData;
+    private TextView textHashDataW;
     private EditText editText;
     private String fileName = "Address.txt";
     private String text ="";
     private LineChart mChart;
     private int test;
-    private String aaa="50";
+    //private String[] aaa = new String[10];
+    //private String aaa="120";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textLuckDayData = findViewById(R.id.textLuckDayData);
         textLuckHoursData = findViewById(R.id.textLuckHoursData);
         textSharesData = findViewById(R.id.textSharesData);
+        textHashDataW = findViewById(R.id.appwidget_text);
 
      //   WebView  myWebView = (WebView)findViewById(R.id.WebView);
         //標準ブラウザをキャンセル
@@ -280,7 +283,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textLuckDayData.setText(jsonObject.getJSONObject(text).getString("luckDays"));
                     textLuckHoursData.setText(jsonObject.getJSONObject(text).getString("luckHours"));
                     textSharesData.setText(jsonObject.getJSONObject(text).getString("shares"));
-                    String aaa=jsonObject.getJSONObject(text).getString("paid");
+                    textHashDataW.setText(jsonObject.getJSONObject(text).getString("hashrateString"));
+                    test=50;
+                    //(jsonObject.getJSONObject(text).getString("paid"));
 
 //                    textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
 //                    textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
@@ -326,8 +331,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
     //グラフ追加
     private void setData() {
+
+
         // Entry()を使ってLineDataSetに設定できる形に変更してarrayを新しく作成
-        int test = Integer.parseInt(aaa);
+        //test = Integer.parseInt(String.valueOf(aaa));
         int data[] = {test, 130, 112, 121, 102, 83,
                 99, 101, 74, 105, 120, 112,
                 109, 102, 107, 93, 82, 99, 110,

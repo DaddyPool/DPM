@@ -3,4 +3,6 @@
     <string name="no_text">"No text !"</string>
     <string name="saved">Saved</string>
     <string name="read_error">Read file error !</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

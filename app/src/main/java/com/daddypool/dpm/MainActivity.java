@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String text ="";
     private LineChart mChart;
     private int test;
+    private int[] HashHistorys = null;
     //private String[] aaa = new String[10];
     //private String aaa="120";
 
@@ -195,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mChart.getAxisRight().setEnabled(false);
 
         // add data
-        setData();
+//        setData();
 
         mChart.animateX(2500);
         //mChart.invalidate();
@@ -283,7 +284,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textLuckDayData.setText(jsonObject.getJSONObject(text).getString("luckDays"));
                     textLuckHoursData.setText(jsonObject.getJSONObject(text).getString("luckHours"));
                     textSharesData.setText(jsonObject.getJSONObject(text).getString("shares"));
-                    textHashDataW.setText(jsonObject.getJSONObject(text).getString("hashrateString"));
+//                    textHashDataW.setText(jsonObject.getJSONObject(text).getString("hashrateString"));
                     test=50;
                     //(jsonObject.getJSONObject(text).getString("paid"));
 
@@ -304,6 +305,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 }
                 if (loader.getId()==3){
                     JSONObject jsonObject = data.getJSONObject("history");
+                    //history のtime とhashrate　から取得するとして、timeはどうやって指定するか、、、
+
+                   HashHistorys = new int[] {test, 150, 112, 121, 102, 83,
+                           99, 101, 74, 105, 120, 112,
+                            109, 102, 107, 93, 82, 99, 110,};
+                    setData();
+
                 }
 
             } catch (JSONException e) {
@@ -335,16 +343,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // Entry()を使ってLineDataSetに設定できる形に変更してarrayを新しく作成
         //test = Integer.parseInt(String.valueOf(aaa));
-        int data[] = {test, 130, 112, 121, 102, 83,
-                99, 101, 74, 105, 120, 112,
-                109, 102, 107, 93, 82, 99, 110,
-        };
+//        int data[] = {test, 130, 112, 121, 102, 83,
+//               99, 101, 74, 105, 120, 112,
+//               109, 102, 107, 93, 82, 99, 110,
+//        };
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        for (int i = 0; i < data.length; i++) {
-            values.add(new Entry(i, data[i], null, null));
-        }
+        if (HashHistorys == null){return;}
+        else{for (int i = 0; i < HashHistorys.length; i++) {
+            values.add(new Entry(i, HashHistorys[i], null, null));
+        }}
+
+
 
         LineDataSet set1;
 

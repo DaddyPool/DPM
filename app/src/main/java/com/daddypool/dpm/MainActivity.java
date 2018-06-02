@@ -186,8 +186,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         YAxis leftAxis = mChart.getAxisLeft();
         // Y軸最大最小設定
-        leftAxis.setAxisMaximum(150f);
-        leftAxis.setAxisMinimum(0f);
+        leftAxis.setAxisMaximum(25000f);
+        leftAxis.setAxisMinimum(3000f);
         // Grid横軸を破線
         leftAxis.enableGridDashedLine(10f, 10f, 0f);
         leftAxis.setDrawZeroLine(true);
@@ -304,13 +304,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textHashu.setText(jsonObject.getJSONObject("bitzeny").getString("hashrateString"));
                 }
                 if (loader.getId()==3){
+                    //グラフに値をセット
                     JSONObject jsonObject = data.getJSONObject("history");
-                    //history のtime とhashrate　から取得するとして、timeはどうやって指定するか、、、
-
-                   HashHistorys = new int[] {test, 150, 112, 121, 102, 83,
-                           99, 101, 74, 105, 120, 112,
-                            109, 102, 107, 93, 82, 99, 110,};
-                    setData();
+                    JSONArray jsonArray = jsonObject.getJSONArray(text);
+                    int j = 0;
+                    //全てを表示すると多いのでループカウントを２０からに設定。
+                    HashHistorys = new int[jsonArray.length() - 20];
+                    for (int i = 20; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        HashHistorys[j] = jsonObject1.getInt("hashrate");
+                        j++;
+                    }
+                 setData();
 
                 }
 

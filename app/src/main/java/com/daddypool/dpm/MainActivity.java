@@ -3,6 +3,7 @@ package com.daddypool.dpm;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +54,8 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 //<<グラフ追加
@@ -145,7 +148,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //        getLoaderManager().restartLoader(1, null, this);
 //        //PoolStats 用
 //        getLoaderManager().restartLoader(2, null, this);
-        final Button buttonSave = findViewById(R.id.button);
+
+         final Button buttonSave = findViewById(R.id.button);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,6 +173,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 }
 
             }
+        });
+
+        //QRコード読み取りボタンイベント
+        final Button buttonQRRead = findViewById(R.id.btnQRRead);
+        buttonQRRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new IntentIntegrator(MainActivity.this).initiateScan();
+            }
+
         });
         //>>グラフ追加
         mChart = findViewById(R.id.line_chart);
@@ -206,6 +220,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         //<<グラフ追加
     }
 
+    @Override
+    //QRコード読み取り後の処理
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            //読み取った情報を入力テキストへセット
+            editText.setText(result.getContents());
+            Log.d("readQR", result.getContents());
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
     // ファイルを保存
     public void saveFile(String file, String str) {
 

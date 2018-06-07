@@ -79,8 +79,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private LineChart mChart;
     private int test;
     private int[] HashHistorys = null;
-    //private String[] aaa = new String[10];
-    //private String aaa="120";
+    private int MaxHash;
+    private int MinHash;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,14 +198,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         XAxis xAxis = mChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-
-        YAxis leftAxis = mChart.getAxisLeft();
-        // Y軸最大最小設定
-        leftAxis.setAxisMaximum(25000f);
-        leftAxis.setAxisMinimum(3000f);
-        // Grid横軸を破線
-        leftAxis.enableGridDashedLine(10f, 10f, 0f);
-        leftAxis.setDrawZeroLine(true);
 
         // 右側の目盛り
         mChart.getAxisRight().setEnabled(false);
@@ -333,6 +326,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     //グラフに値をセット
                     JSONObject jsonObject = data.getJSONObject("history");
                     JSONArray jsonArray = jsonObject.getJSONArray(text);
+
+
                     int j = 0;
                     //全てを表示すると多いのでループカウントを２０からに設定。
                     HashHistorys = new int[jsonArray.length() - 20];
@@ -340,6 +335,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         HashHistorys[j] = jsonObject1.getInt("hashrate");
                         j++;
+                    }
+
+                    //グラフY軸表示用に最大値と最小値を取得しておく
+                    for (int i = 1; i < HashHistorys.length; i++) {
+                        int v = HashHistorys[i];
+                        if (v > MaxHash) {
+                            MaxHash = v;
+                        }
+                        if (v < MinHash) {
+                            MinHash = v;
+                        }
                     }
                  setData();
 
@@ -421,8 +427,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             // create a data object with the datasets
             LineData lineData = new LineData(dataSets);
 
+
+            YAxis leftAxis = mChart.getAxisLeft();
+            // Y軸最大最小設定
+            //自分のデータの最大最小プラスマイナス1000としておく
+            leftAxis.setAxisMaximum(MaxHash+1000);
+            leftAxis.setAxisMinimum(MinHash-1000);
+            // Grid横軸を破線
+            leftAxis.enableGridDashedLine(10f, 10f, 0f);
+            leftAxis.setDrawZeroLine(true);
+
             // set data
             mChart.setData(lineData);
+
         }
     }
 }

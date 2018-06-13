@@ -23,13 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/textHashData"
+        android:layout_toStartOf="@+id/textHashDataW"
         android:background="#09C"
         android:text="hashrate:"
         android:textColor="@android:color/holo_blue_bright" />
 
     <TextView
-        android:id="@+id/textHashData"
+        android:id="@+id/textHashDataW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/appwidget_text"

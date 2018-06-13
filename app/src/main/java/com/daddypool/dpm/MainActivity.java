@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textLuckDayData = findViewById(R.id.textLuckDayData);
         textLuckHoursData = findViewById(R.id.textLuckHoursData);
         textSharesData = findViewById(R.id.textSharesData);
-        textHashDataW = findViewById(R.id.appwidget_text);
+ //       textHashDataW = findViewById(R.id.textHashDataW);
 
      //   WebView  myWebView = (WebView)findViewById(R.id.WebView);
         //標準ブラウザをキャンセル

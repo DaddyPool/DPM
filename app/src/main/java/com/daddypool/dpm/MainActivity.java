@@ -95,6 +95,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
 
+        //メイン画面用
+        setScreenMain();
+
         // ツールバーをアクションバーとしてセット
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -213,6 +216,30 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         //<<グラフ追加
     }
 
+    //蛇口用画面遷移部分
+    private void setScreenMain(){
+        setContentView(R.layout.activity_main);
+
+        Button sendButton = findViewById(R.id.send_button);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setScreenSub();
+            }
+        });
+    }
+
+    private void setScreenSub(){
+        setContentView(R.layout.activity_sub);
+
+        Button returnButton = findViewById(R.id.return_button);
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setScreenMain();
+            }
+        });
+    }
     @Override
     //QRコード読み取り後の処理
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

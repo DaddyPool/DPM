@@ -123,13 +123,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textSharesData = findViewById(R.id.textSharesData);
  //       textHashDataW = findViewById(R.id.textHashDataW);
 
-     //   WebView  myWebView = (WebView)findViewById(R.id.WebView);
-        //標準ブラウザをキャンセル
-     //   myWebView.setWebViewClient(new WebViewClient());
-        //アプリ起動時に読み込むURL
-     //   myWebView.loadUrl("http://daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe");
-
-
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
 
@@ -147,13 +140,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // JSONの取得
         GetJsonData();
 
-        // JSONの取得
-//        //MyData 用
-//        getLoaderManager().restartLoader(1, null, this);
-//        //PoolStats 用
-//        getLoaderManager().restartLoader(2, null, this);
-
-         final Button buttonSave = findViewById(R.id.button);
+       final Button buttonSave = findViewById(R.id.button);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,10 +231,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     //QRコード読み取り後の処理
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        String qrAddress = null;
+        qrAddress = result.getContents();
         if(result != null) {
             //読み取った情報を入力テキストへセット
-            editText.setText(result.getContents());
-            Log.d("readQR", result.getContents());
+            qrAddress.replace("bitzeny:","");
+            qrAddress.trim();
+            editText.setText(qrAddress);
+            Log.d("readQR", qrAddress);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -334,13 +325,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     test=50;
                     //(jsonObject.getJSONObject(text).getString("paid"));
 
-//                    textDiffData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("diff"));
-//                    textHashData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("hashrateString"));
-//                    textBalData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("balance"));
-//                    textPaidData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("paid"));
-//                    textLuckDayData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckDays"));
-//                    textLuckHoursData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("luckHours"));
-//                    textSharesData.setText(jsonObject.getJSONObject("ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe").getString("shares"));
+
                 }
                 //PoolStatsの表示
                 if (loader.getId()==2){
@@ -404,13 +389,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     //グラフ追加
     private void setData() {
 
-
-        // Entry()を使ってLineDataSetに設定できる形に変更してarrayを新しく作成
-        //test = Integer.parseInt(String.valueOf(aaa));
-//        int data[] = {test, 130, 112, 121, 102, 83,
-//               99, 101, 74, 105, 120, 112,
-//               109, 102, 107, 93, 82, 99, 110,
-//        };
 
         ArrayList<Entry> values = new ArrayList<>();
 

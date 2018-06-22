@@ -193,7 +193,7 @@
                 android:id="@+id/textHashData"
                 android:layout_width="121dp"
                 android:layout_height="18dp"
-                android:text="TextView"
+                android:text="NoData"
                 tools:layout_editor_absoluteX="263dp"
                 tools:layout_editor_absoluteY="181dp" />
         </TableRow>
@@ -216,7 +216,7 @@
                 android:id="@+id/textDiffData"
                 android:layout_width="71dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="NoData"
                 tools:layout_editor_absoluteX="186dp"
                 tools:layout_editor_absoluteY="199dp" />
         </TableRow>
@@ -241,7 +241,7 @@
                 android:id="@+id/textBalData"
                 android:layout_width="101dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="NoData"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="215dp" />
         </TableRow>
@@ -266,7 +266,7 @@
                 android:id="@+id/textPaidData"
                 android:layout_width="102dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="NoData"
                 tools:layout_editor_absoluteX="223dp"
                 tools:layout_editor_absoluteY="234dp" />
         </TableRow>
@@ -288,7 +288,7 @@
                 android:id="@+id/textLuckDayData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="NoData"
                 tools:layout_editor_absoluteX="225dp"
                 tools:layout_editor_absoluteY="253dp" />
         </TableRow>
@@ -310,7 +310,7 @@
                 android:id="@+id/textLuckHoursData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="NoData"
                 tools:layout_editor_absoluteX="223dp"
                 tools:layout_editor_absoluteY="272dp" />
         </TableRow>
@@ -332,7 +332,7 @@
                 android:id="@+id/textSharesData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="NoData"
                 tools:layout_editor_absoluteX="223dp"
                 tools:layout_editor_absoluteY="290dp" />
         </TableRow>

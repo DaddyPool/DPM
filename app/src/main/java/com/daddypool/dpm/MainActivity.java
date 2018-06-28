@@ -241,9 +241,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         qrAddress = result.getContents();
         if(result != null) {
             //読み取った情報を入力テキストへセット
-            qrAddress.replace("bitzeny:","");
+//            qrAddress.substring(8,34);
             qrAddress.trim();
-            editText.setText(qrAddress);
+            editText.setText( qrAddress.substring(8,42));
             Log.d("readQR", qrAddress);
         } else {
             super.onActivityResult(requestCode, resultCode, data);

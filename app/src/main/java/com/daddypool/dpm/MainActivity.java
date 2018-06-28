@@ -201,6 +201,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // dont forget to refresh the drawing
         // mChart.invalidate();
         //<<グラフ追加
+
+        //蛇口WebView用
+//        WebView myWebView = (WebView) findViewById(R.id.webView);
+//        myWebView.setWebViewClient(new WebViewClient());
+//        myWebView.loadUrl("http://daddy.starfree.jp/");
+
     }
 
     //蛇口用画面遷移部分

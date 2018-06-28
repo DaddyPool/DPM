@@ -7,7 +7,8 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.daddypool.dpm.MainActivity">
+    tools:context="com.daddypool.dpm.MainActivity"
+    tools:ignore="ExtraText">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -25,10 +26,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_marginTop="8dp"
-        android:text="pool"
-        android:textSize="30sp"
+        android:text="戻る"
+        android:textSize="20sp"
         ads:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:layout_editor_absoluteX="0dp" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="452dp"
+        android:layout_marginTop="8dp"
+        ads:layout_constraintTop_toBottomOf="@+id/return_button" />
 
 </android.support.constraint.ConstraintLayout>

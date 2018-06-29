@@ -351,16 +351,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     if (jsonArray.length() == 0){return;}
                     if (jsonArray.length() <= 20){
                         HashHistorys = new int[jsonArray.length()];
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            HashHistorys[j] = jsonObject1.getInt("hashrate");
+                            j++;
+                        }
                     }
                     else{
                         //全てを表示すると多いのでループカウントを２０からに設定。
                         HashHistorys = new int[jsonArray.length() - 20];
-                    }
-
-                    for (int i = 20; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        HashHistorys[j] = jsonObject1.getInt("hashrate");
-                        j++;
+                        for (int i = 20; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            HashHistorys[j] = jsonObject1.getInt("hashrate");
+                            j++;
+                        }
                     }
 
                     //グラフY軸表示用に最大値と最小値を取得しておく

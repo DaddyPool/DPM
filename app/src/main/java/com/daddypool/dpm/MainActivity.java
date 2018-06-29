@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         String qrAddress = null;
         qrAddress = result.getContents();
-        if(result != null) {
+        if(qrAddress != null) {
             //読み取った情報を入力テキストへセット
 //            qrAddress.substring(8,34);
             qrAddress.trim();
@@ -347,8 +347,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
                     int j = 0;
-                    //全てを表示すると多いのでループカウントを２０からに設定。
-                    HashHistorys = new int[jsonArray.length() - 20];
+
+                    if (jsonArray.length() == 0){return;}
+                    if (jsonArray.length() <= 20){
+                        HashHistorys = new int[jsonArray.length()];
+                    }
+                    else{
+                        //全てを表示すると多いのでループカウントを２０からに設定。
+                        HashHistorys = new int[jsonArray.length() - 20];
+                    }
+
                     for (int i = 20; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         HashHistorys[j] = jsonObject1.getInt("hashrate");

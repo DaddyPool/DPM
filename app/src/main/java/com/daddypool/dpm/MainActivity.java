@@ -368,6 +368,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     }
 
                     //グラフY軸表示用に最大値と最小値を取得しておく
+                    MaxHash = 0;
+                    MinHash = 0;
                     for (int i = 1; i < HashHistorys.length; i++) {
                         int v = HashHistorys[i];
                         if (v > MaxHash) {
@@ -420,13 +422,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         LineDataSet set1;
 
         if (mChart.getData() != null &&
-                mChart.getData().getDataSetCount() > 0) {
+               mChart.getData().getDataSetCount() > 0) {
 
-            set1 = (LineDataSet) mChart.getData().getDataSetByIndex(0);
-            set1.setValues(values);
-            mChart.getData().notifyDataChanged();
-            mChart.notifyDataSetChanged();
-        } else {
+           set1 = (LineDataSet) mChart.getData().getDataSetByIndex(0);
+           set1.setValues(values);
+           mChart.getData().notifyDataChanged();
+           mChart.notifyDataSetChanged();
+           mChart.invalidate();
+       }
+
+//        if (mChart.getData() != null &&
+//                mChart.getData().getDataSetCount() > 0) {
+//
+//            set1 = (LineDataSet) mChart.getData().getDataSetByIndex(0);
+//            set1.setValues(values);
+//            mChart.getData().notifyDataChanged();
+//            mChart.notifyDataSetChanged();
+//            // Y軸最大最小設定
+//            //自分のデータの最大最小プラスマイナス1000としておく
+//            YAxis leftAxis = mChart.getAxisLeft();
+//            leftAxis.setAxisMaximum(MaxHash+1000);
+//            leftAxis.setAxisMinimum(MinHash-1000);
+//        } else {
+//
             // create a dataset and give it a type
             set1 = new LineDataSet(values, "DataSet");
 
@@ -463,6 +481,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             // set data
             mChart.setData(lineData);
 
-        }
+//        }
     }
 }

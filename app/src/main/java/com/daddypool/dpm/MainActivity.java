@@ -72,12 +72,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView textLuckDayData;
     private TextView textLuckHoursData;
     private TextView textSharesData;
-    private TextView textHashDataW;
     private EditText editText;
     private String fileName = "Address.txt";
     private String text ="";
     private LineChart mChart;
-    private int test;
     private int[] HashHistorys = null;
     private int MaxHash;
     private int MinHash;
@@ -121,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textLuckDayData = findViewById(R.id.textLuckDayData);
         textLuckHoursData = findViewById(R.id.textLuckHoursData);
         textSharesData = findViewById(R.id.textSharesData);
- //       textHashDataW = findViewById(R.id.textHashDataW);
 
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
@@ -327,9 +324,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textLuckDayData.setText(jsonObject.getJSONObject(text).getString("luckDays"));
                     textLuckHoursData.setText(jsonObject.getJSONObject(text).getString("luckHours"));
                     textSharesData.setText(jsonObject.getJSONObject(text).getString("shares"));
-//                    textHashDataW.setText(jsonObject.getJSONObject(text).getString("hashrateString"));
-                    test=50;
-                    //(jsonObject.getJSONObject(text).getString("paid"));
+
 
 
                 }

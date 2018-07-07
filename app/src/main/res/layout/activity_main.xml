@@ -339,21 +339,6 @@
         </TableRow>
     </TableLayout>
 
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="170dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        ads:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        tools:layout_editor_absoluteX="8dp">
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/line_chart"
-            android:layout_width="match_parent"
-            android:layout_height="198dp" />
-
-    </LinearLayout>
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="381dp"
@@ -364,6 +349,17 @@
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.666"
         ads:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart"
+        android:layout_width="360dp"
+        android:layout_height="158dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 
 </android.support.constraint.ConstraintLayout>

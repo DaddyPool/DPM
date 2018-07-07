@@ -185,16 +185,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         XAxis xAxis = mChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-
+        xAxis.setDrawLabels(false);
         // 右側の目盛り
         mChart.getAxisRight().setEnabled(false);
-
         // add data
 //        setData();
 
         mChart.animateX(2500);
         //mChart.invalidate();
 
+        //凡例
+        mChart.getLegend().setEnabled(false);
         // dont forget to refresh the drawing
         // mChart.invalidate();
         //<<グラフ追加
@@ -441,7 +442,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //        } else {
 //
             // create a dataset and give it a type
-            set1 = new LineDataSet(values, "DataSet");
+            set1 = new LineDataSet(values, "");
 
             set1.setDrawIcons(false);
             set1.setColor(Color.BLACK);

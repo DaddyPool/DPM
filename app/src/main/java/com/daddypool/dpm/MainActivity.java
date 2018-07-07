@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mChart.setDrawGridBackground(true);
 
         // no description text
-        mChart.getDescription().setEnabled(true);
+        mChart.getDescription().setEnabled(false);
 
         // Grid縦軸を破線
         XAxis xAxis = mChart.getXAxis();

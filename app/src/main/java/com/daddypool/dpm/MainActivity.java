@@ -464,6 +464,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             // create a data object with the datasets
             LineData lineData = new LineData(dataSets);
 
+            mChart.notifyDataSetChanged();
+            mChart.invalidate();
 
             YAxis leftAxis = mChart.getAxisLeft();
             // Y軸最大最小設定
@@ -473,6 +475,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             // Grid横軸を破線
             leftAxis.enableGridDashedLine(10f, 10f, 0f);
             leftAxis.setDrawZeroLine(true);
+
+
 
             // set data
             mChart.setData(lineData);

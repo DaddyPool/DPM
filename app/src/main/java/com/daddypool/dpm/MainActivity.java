@@ -318,6 +318,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 //MyData の表示
                 if (loader.getId()==1){
                     JSONObject jsonObject = data.getJSONObject("workers");
+
                     textDiffData.setText(jsonObject.getJSONObject(text).getString("diff"));
                     textHashData.setText(jsonObject.getJSONObject(text).getString("hashrateString"));
                     textBalData.setText(jsonObject.getJSONObject(text).getString("balance"));

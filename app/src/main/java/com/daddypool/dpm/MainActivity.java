@@ -314,18 +314,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<JSONObject> loader, JSONObject data) {
         if (data != null) {
 
+            String addressname = "";
             try {
                 //MyData の表示
                 if (loader.getId()==1){
                     JSONObject jsonObject = data.getJSONObject("workers");
 
-                    textDiffData.setText(jsonObject.getJSONObject(text).getString("diff"));
-                    textHashData.setText(jsonObject.getJSONObject(text).getString("hashrateString"));
-                    textBalData.setText(jsonObject.getJSONObject(text).getString("balance"));
-                    textPaidData.setText(jsonObject.getJSONObject(text).getString("paid"));
-                    textLuckDayData.setText(jsonObject.getJSONObject(text).getString("luckDays"));
-                    textLuckHoursData.setText(jsonObject.getJSONObject(text).getString("luckHours"));
-                    textSharesData.setText(jsonObject.getJSONObject(text).getString("shares"));
+                    addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
+                    textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
+                    textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
+                    textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
+                    textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
+                    textLuckDayData.setText(jsonObject.getJSONObject(addressname).getString("luckDays"));
+                    textLuckHoursData.setText(jsonObject.getJSONObject(addressname).getString("luckHours"));
+                    textSharesData.setText(jsonObject.getJSONObject(addressname).getString("shares"));
 
 
 
@@ -340,7 +342,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 if (loader.getId()==3){
                     //グラフに値をセット
                     JSONObject jsonObject = data.getJSONObject("history");
-                    JSONArray jsonArray = jsonObject.getJSONArray(text);
+                    addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
+                    JSONArray jsonArray = jsonObject.getJSONArray(addressname);
 
 
                     int j = 0;

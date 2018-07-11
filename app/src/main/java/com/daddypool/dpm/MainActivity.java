@@ -312,14 +312,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<JSONObject> loader, JSONObject data) {
+        String addressname = "";
         if (data != null) {
 
-            String addressname = "";
+
             try {
                 //MyData の表示
                 if (loader.getId()==1){
                     JSONObject jsonObject = data.getJSONObject("workers");
-
+                    if (jsonObject.length() == 0){return;}
+                    else{
                     addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
                     textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
                     textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
@@ -328,7 +330,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textLuckDayData.setText(jsonObject.getJSONObject(addressname).getString("luckDays"));
                     textLuckHoursData.setText(jsonObject.getJSONObject(addressname).getString("luckHours"));
                     textSharesData.setText(jsonObject.getJSONObject(addressname).getString("shares"));
-
+                    }
 
 
                 }
@@ -342,7 +344,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 if (loader.getId()==3){
                     //グラフに値をセット
                     JSONObject jsonObject = data.getJSONObject("history");
+                    if (jsonObject.length() == 0){return;}
+                    else{
                     addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
+                    }
                     JSONArray jsonArray = jsonObject.getJSONArray(addressname);
 
 

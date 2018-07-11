@@ -320,7 +320,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 //MyData の表示
                 if (loader.getId()==1){
                     JSONObject jsonObject = data.getJSONObject("workers");
-                    if (jsonObject.length() == 0){return;}
+                    if (jsonObject.length() == 0){
+                        textDiffData.setText("NoData");
+                        textHashData.setText("NoData");
+                        textBalData.setText("NoData");
+                        textPaidData.setText("NoData");
+                        textLuckDayData.setText("NoData");
+                        textLuckHoursData.setText("NoData");
+                        textSharesData.setText("NoData");
+                    }
                     else{
                     addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
                     textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));

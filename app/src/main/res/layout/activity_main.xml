@@ -24,19 +24,11 @@
                 android:background="@color/colorPrimaryDark"
                 android:minHeight="@android:dimen/app_icon_size"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textPoolStats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="●Bitzeny Pool Stats"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
 
             <Button
                 android:id="@+id/btnQRRead"
@@ -47,6 +39,26 @@
                 android:text="QR読取"
                 app:layout_constraintEnd_toStartOf="@+id/button"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="74dp"
+                android:layout_height="37dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="更新"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <TextView
+                android:id="@+id/textPoolStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="●Bitzeny Pool Stats"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText" />
 
             <EditText
                 android:id="@+id/editText"
@@ -243,16 +255,6 @@
                         tools:layout_editor_absoluteY="290dp" />
                 </TableRow>
             </TableLayout>
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="74dp"
-                android:layout_height="37dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp"
-                android:text="更新"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
                 android:id="@+id/textMyData"

@@ -352,7 +352,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 if (loader.getId()==3){
                     //グラフに値をセット
                     JSONObject jsonObject = data.getJSONObject("history");
-                    if (jsonObject.length() == 0){return;}
+                    if (jsonObject.length() == 0){
+                        HashHistorys = null;
+                        setData();
+                        return;}
                     else{
                     addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
                     }
@@ -361,7 +364,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                     int j = 0;
 
-                    if (jsonArray.length() == 0){return;}
+                    if (jsonArray.length() == 0)
+                    {return;}
                     if (jsonArray.length() <= 20){
                         HashHistorys = new int[jsonArray.length()];
                         for (int i = 0; i < jsonArray.length(); i++) {
@@ -425,7 +429,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        if (HashHistorys == null){return;}
+        if (HashHistorys == null){values.add(new Entry(0, 0, null, null));}
         else{for (int i = 0; i < HashHistorys.length; i++) {
             values.add(new Entry(i, HashHistorys[i], null, null));
         }}

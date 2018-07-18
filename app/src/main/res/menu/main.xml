@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.daddypool.dpm.app.MainActivity" >
+
+    <item
+        android:id="@+id/top"
+        android:title="@string/menu_top"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item1"
+        android:title="@string/menu_item1"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item2"
+        android:title="@string/menu_item2"
+        android:orderInCategory="300"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item3"
+        android:title="@string/menu_item3"
+        android:orderInCategory="400"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item4"
+        android:title="@string/menu_item4"
+        android:orderInCategory="500"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item5"
+        android:title="@string/menu_item5"
+        android:orderInCategory="600"
+        app:showAsAction="never" />
+
+
+
+</menu>

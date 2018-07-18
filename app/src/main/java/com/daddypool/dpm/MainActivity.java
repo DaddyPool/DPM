@@ -57,6 +57,15 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 //<<グラフ追加
 
@@ -79,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private int[] HashHistorys = null;
     private int MaxHash;
     private int MinHash;
+
+
 
 
     @Override
@@ -205,7 +216,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //        myWebView.setWebViewClient(new WebViewClient());
 //        myWebView.loadUrl("http://daddy.starfree.jp/");
 
+//        startActivity(new Intent(this, OssLicensesMenuActivity.class));
+
+
     }
+
 
     //蛇口用画面遷移部分
     private void setScreenMain(){
@@ -231,6 +246,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
     }
+
+
     @Override
     //QRコード読み取り後の処理
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -503,5 +520,52 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             mChart.setData(lineData);
 
 //        }
+    }
+    // アクションバーを表示するメソッド
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+
+    // オプションメニューのアイテムが選択されたときに呼び出されるメソッド
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        TextView varTextView = (TextView) findViewById(R.id.textView);
+        switch (item.getItemId()) {
+            case R.id.top:
+                finish();
+                Intent varIntent_back =
+                        new Intent(MainActivity.this, MainActivity.class);
+                startActivity(varIntent_back);
+                return true;
+            case R.id.item1:
+                Intent varIntent1 =
+                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
+                startActivity(varIntent1);
+                return true;
+            case R.id.item2:
+                Intent varIntent2 =
+                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
+                startActivity(varIntent2);
+                return true;
+            case R.id.item3:
+                Intent varIntent3 =
+                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
+                startActivity(varIntent3);
+                return true;
+            case R.id.item4:
+                Intent varIntent4 =
+                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
+                startActivity(varIntent4);
+                return true;
+            case R.id.item5:
+                Intent varIntent5 =
+                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
+                startActivity(varIntent5);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

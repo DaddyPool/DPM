@@ -216,7 +216,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //        myWebView.setWebViewClient(new WebViewClient());
 //        myWebView.loadUrl("http://daddy.starfree.jp/");
 
-//        startActivity(new Intent(this, OssLicensesMenuActivity.class));
 
 
     }
@@ -547,7 +546,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 return true;
             case R.id.item2:
                 Intent varIntent2 =
-                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
+                        new Intent(MainActivity.this, faucet.class);
                 startActivity(varIntent2);
                 return true;
             case R.id.item3:

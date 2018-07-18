@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
 
@@ -31,11 +30,6 @@
         ads:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:layout_editor_absoluteX="0dp" />
 
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="452dp"
-        android:layout_marginTop="8dp"
-        ads:layout_constraintTop_toBottomOf="@+id/return_button" />
+
 
 </android.support.constraint.ConstraintLayout>

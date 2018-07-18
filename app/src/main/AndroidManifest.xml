@@ -29,6 +29,8 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
+        <activity android:name=".faucet"/>
+
         <receiver android:name="com.ic_launcher.dpm.DPMWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

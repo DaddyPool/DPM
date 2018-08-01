@@ -17,6 +17,7 @@ import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -134,6 +135,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
 
+
+        // AutoCompleteTextViewを読み込む
+        final AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.editText);
+        // 入力補完リストを読み込む
+        //JSONからリストを引っ張ってくる処理を入れる
+        //final String[] addresslist = getResources().getStringArray(R.array.countries_array);
+        // ArrayAdapterを作成
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, addresslist);
+        // ViewにAdapterを設定
+        textView.setAdapter(adapter);
+
+
+
         //保存してあるアドレスがあれば読み込んで表示する
         String str = readFile(fileName);
         if (str != null) {
@@ -210,13 +224,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // dont forget to refresh the drawing
         // mChart.invalidate();
         //<<グラフ追加
-
-        //蛇口WebView用
-//        WebView myWebView = (WebView) findViewById(R.id.webView);
-//        myWebView.setWebViewClient(new WebViewClient());
-//        myWebView.loadUrl("http://daddy.starfree.jp/");
-
-
 
     }
 
@@ -320,6 +327,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
             urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
         }
+
+
         AsyncJsonLoader jsonLoader = new AsyncJsonLoader(this, urlText);
         jsonLoader.forceLoad();
         return  jsonLoader;

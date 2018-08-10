@@ -16,7 +16,14 @@ public class faucet extends AppCompatActivity {
 
         setContentView(R.layout.faucet);
         WebView myWebView = (WebView) findViewById(R.id.webView);
+// JavaScriptを有効化
+        myWebView.getSettings().setJavaScriptEnabled(true);
+
+        // Web Storage を有効化
+        myWebView.getSettings().setDomStorageEnabled(true);
+
         myWebView.setWebViewClient(new WebViewClient());
+
         myWebView.loadUrl("http://daddy.starfree.jp/");
 //        myWebView.loadUrl("https://www.google.com/");
     }

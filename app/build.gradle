@@ -32,4 +32,5 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
     implementation 'com.google.android.gms:play-services-oss-licenses:16.0.0'
+    implementation 'com.google.android.gms:play-services-safetynet:15.0.1'
 }

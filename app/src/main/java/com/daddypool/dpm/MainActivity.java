@@ -33,6 +33,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.google.android.gms.ads.AdRequest;
@@ -68,6 +70,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 //<<グラフ追加
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<JSONObject> {
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String fileName = "Address.txt";
     private String text ="";
     private LineChart mChart;
-    private int[] HashHistorys = null;
+    private int[] [] HashHistorys = null;
     private int MaxHash;
     private int MinHash;
 
@@ -142,9 +145,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         //JSONからリストを引っ張ってくる処理を入れる
         //final String[] addresslist = getResources().getStringArray(R.array.countries_array);
         // ArrayAdapterを作成
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, addresslist);
-        // ViewにAdapterを設定
-        textView.setAdapter(adapter);
+//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, addresslist);
+//        // ViewにAdapterを設定
+//        textView.setAdapter(adapter);
 
 
 
@@ -210,8 +213,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         XAxis xAxis = mChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setDrawLabels(false);
-        // 右側の目盛り
+        xAxis.setDrawLabels(true);
+                // 右側の目盛り
         mChart.getAxisRight().setEnabled(false);
         // add data
 //        setData();
@@ -392,19 +395,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     if (jsonArray.length() == 0)
                     {return;}
                     if (jsonArray.length() <= 20){
-                        HashHistorys = new int[jsonArray.length()];
+                        HashHistorys = new int[jsonArray.length()][2];
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            HashHistorys[j] = jsonObject1.getInt("hashrate");
+                            HashHistorys[j][0] = jsonObject1.getInt("time");
+                            HashHistorys[j][1] = jsonObject1.getInt("hashrate");
                             j++;
                         }
                     }
                     else{
                         //全てを表示すると多いのでループカウントを２０からに設定。
-                        HashHistorys = new int[jsonArray.length() - 20];
+                        HashHistorys = new int[jsonArray.length() - 20][2];
                         for (int i = 20; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            HashHistorys[j] = jsonObject1.getInt("hashrate");
+                            HashHistorys[j][0] = jsonObject1.getInt("time");
+                            HashHistorys[j][1] = jsonObject1.getInt("hashrate");
                             j++;
                         }
                     }
@@ -413,7 +418,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     MaxHash = 0;
                     MinHash = 0;
                     for (int i = 1; i < HashHistorys.length; i++) {
-                        int v = HashHistorys[i];
+                        int v = HashHistorys[i][1];
                         if (v > MaxHash) {
                             MaxHash = v;
                         }
@@ -454,9 +459,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        if (HashHistorys == null){values.add(new Entry(0, 0, null, null));}
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+
+        if (HashHistorys == null){values.add(new Entry('0', 0, null, null));}
         else{for (int i = 0; i < HashHistorys.length; i++) {
-            values.add(new Entry(i, HashHistorys[i], null, null));
+//            Date time = new Date(HashHistorys[i][0] * 1000L);
+//            time = sdf.parse(sdf.format(time));
+//
+//            String strtime = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(time);
+
+            values.add(new Entry(HashHistorys[i][0] * 1000L, HashHistorys[i][1], null, null));
         }}
 
 
@@ -465,6 +477,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         if (mChart.getData() != null &&
                mChart.getData().getDataSetCount() > 0) {
+
+           LineData data = mChart.getData();
 
            set1 = (LineDataSet) mChart.getData().getDataSetByIndex(0);
            set1.setValues(values);

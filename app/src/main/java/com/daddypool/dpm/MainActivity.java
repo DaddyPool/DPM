@@ -556,21 +556,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public boolean onOptionsItemSelected(MenuItem item) {
 //        TextView varTextView = (TextView) findViewById(R.id.textView);
         switch (item.getItemId()) {
-            case R.id.top:
+            case R.id.item0:
                 finish();
                 Intent varIntent_back =
-                        new Intent(MainActivity.this, MainActivity.class);
+                        new Intent(MainActivity.this, aboutDPM.class);
                 startActivity(varIntent_back);
                 return true;
             case R.id.item1:
-                Intent varIntent1 =
-                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
-                startActivity(varIntent1);
-                return true;
-            case R.id.item2:
                 Intent varIntent2 =
                         new Intent(MainActivity.this, faucet.class);
                 startActivity(varIntent2);
+                return true;
+            case R.id.item2:
+                Intent varIntent1 =
+                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);
+                startActivity(varIntent1);
                 return true;
 //            case R.id.item3:
 //                Intent varIntent3 =

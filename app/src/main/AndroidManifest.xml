@@ -30,16 +30,8 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
         <activity android:name=".faucet"/>
+        <activity android:name=".aboutDPM"/>
 
-        <receiver android:name="com.ic_launcher.dpm.DPMWidget">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/dpmwidget_info" />
-        </receiver>
     </application>
 
 </manifest>

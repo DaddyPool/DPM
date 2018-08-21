@@ -4,8 +4,8 @@
     tools:context="com.daddypool.dpm.app.MainActivity" >
 
     <item
-        android:id="@+id/top"
-        android:title="@string/menu_top"
+        android:id="@+id/item0"
+        android:title="@string/menu_item0"
         android:orderInCategory="100"
         app:showAsAction="never" />
     <item

@@ -557,7 +557,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //        TextView varTextView = (TextView) findViewById(R.id.textView);
         switch (item.getItemId()) {
             case R.id.item0:
-                finish();
                 Intent varIntent_back =
                         new Intent(MainActivity.this, aboutDPM.class);
                 startActivity(varIntent_back);

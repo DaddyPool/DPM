@@ -5,9 +5,9 @@
     <string name="read_error">Read file error !</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
-    <string name="menu_top">トップページ</string>
-    <string name="menu_item1">ライセンス</string>
-    <string name="menu_item2">蛇口</string>
+    <string name="menu_item0">aboutDPM</string>
+    <string name="menu_item1">蛇口</string>
+    <string name="menu_item2">OSSライセンス</string>
     <!--<string name="menu_item3">アクティビティ3</string>-->
     <!--<string name="menu_item4">アクティビティ4</string>-->
     <!--<string name="menu_item5">アクティビティ5</string>-->

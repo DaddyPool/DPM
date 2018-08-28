@@ -92,8 +92,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private int[] [] HashHistorys = null;
     private int MaxHash;
     private int MinHash;
-
-
+    private String[] addresslist;
 
 
     @Override
@@ -138,17 +137,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
 
-
-        // AutoCompleteTextViewを読み込む
-        final AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.editText);
-        // 入力補完リストを読み込む
-        //JSONからリストを引っ張ってくる処理を入れる
-        //final String[] addresslist = getResources().getStringArray(R.array.countries_array);
-        // ArrayAdapterを作成
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, addresslist);
-//        // ViewにAdapterを設定
-//        textView.setAdapter(adapter);
-
+        // JSONの取得
+        GetJsonData();
 
 
         //保存してあるアドレスがあれば読み込んで表示する
@@ -162,8 +152,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // エディットテキストのテキストを取得
         text = editText.getText().toString();
 
-        // JSONの取得
-        GetJsonData();
+
 
        final Button buttonSave = findViewById(R.id.button);
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -342,8 +331,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<JSONObject> loader, JSONObject data) {
         String addressname = "";
         if (data != null) {
-
-
             try {
                 //MyData の表示
                 if (loader.getId()==1){
@@ -366,8 +353,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textLuckDayData.setText(jsonObject.getJSONObject(addressname).getString("luckDays"));
                     textLuckHoursData.setText(jsonObject.getJSONObject(addressname).getString("luckHours"));
                     textSharesData.setText(jsonObject.getJSONObject(addressname).getString("shares"));
-                    }
 
+                    }
 
                 }
                 //PoolStatsの表示
@@ -376,6 +363,23 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textWorkersData.setText(jsonObject.getJSONObject("bitzeny").getString("workerCount"));
                     textMinerData.setText(jsonObject.getJSONObject("bitzeny").getString("minerCount"));
                     textHashu.setText(jsonObject.getJSONObject("bitzeny").getString("hashrateString"));
+
+                    // 入力補完リストを読み込む
+                    //JSONからリストを引っ張ってくる処理を入れる
+
+                    JSONArray jsonArray = jsonObject.getJSONObject("bitzeny").getJSONObject("workers").names();
+                    addresslist = new String[jsonArray.length()];
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        addresslist[i] = jsonArray.getString(i);
+                    }
+                    final AutoCompleteTextView editText = (AutoCompleteTextView) findViewById(R.id.editText);
+                    // ArrayAdapterを作成
+                    if (addresslist != null){
+                        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, addresslist);
+                        // ViewにAdapterを設定
+                        editText.setAdapter(adapter);
+                    }
+
                 }
                 if (loader.getId()==3){
                     //グラフに値をセット
@@ -388,7 +392,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
                     }
                     JSONArray jsonArray = jsonObject.getJSONArray(addressname);
-
 
                     int j = 0;
 

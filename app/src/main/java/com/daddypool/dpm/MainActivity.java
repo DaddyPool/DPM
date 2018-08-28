@@ -138,9 +138,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
 
-        // JSONの取得
-        GetJsonData();
-
 
         //保存してあるアドレスがあれば読み込んで表示する
         String str = readFile(fileName);
@@ -153,7 +150,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // エディットテキストのテキストを取得
         text = editText.getText().toString();
 
-
+        // JSONの取得
+        GetJsonData();
 
        final Button buttonSave = findViewById(R.id.button);
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -215,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         XAxis xAxis = mChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setDrawLabels(true);
+        xAxis.setDrawLabels(false);
                 // 右側の目盛り
         mChart.getAxisRight().setEnabled(false);
         // add data

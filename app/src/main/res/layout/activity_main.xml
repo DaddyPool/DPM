@@ -347,15 +347,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hash"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/line_chart"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/line_chart"
                 android:layout_width="360dp"
@@ -369,16 +360,6 @@
 
             </com.github.mikephil.charting.charts.LineChart>
 
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="時間"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/adView"
-                app:layout_constraintTop_toBottomOf="@+id/adView" />
 
             <com.google.android.gms.ads.AdView
                 android:id="@+id/adView"

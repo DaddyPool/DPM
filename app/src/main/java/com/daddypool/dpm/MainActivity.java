@@ -5,6 +5,7 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
 
         //メイン画面用
-        setScreenMain();
+//        setScreenMain();
 
         // ツールバーをアクションバーとしてセット
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -158,6 +159,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonSave.setEnabled(false);
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        buttonSave.setEnabled(true);
+                    }
+                }, 1000L);
                 // エディットテキストのテキストを取得
                 text = editText.getText().toString();
                 // JSONの取得
@@ -185,6 +192,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         buttonQRRead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonQRRead.setEnabled(false);
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        buttonQRRead.setEnabled(true);
+                    }
+                }, 1000L);
                 new IntentIntegrator(MainActivity.this).initiateScan();
             }
 
@@ -221,29 +234,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     //蛇口用画面遷移部分
-    private void setScreenMain(){
-        setContentView(R.layout.activity_main);
-
-        Button sendButton = findViewById(R.id.send_button);
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setScreenSub();
-            }
-        });
-    }
-
-    private void setScreenSub(){
-        setContentView(R.layout.activity_sub);
-
-        Button returnButton = findViewById(R.id.return_button);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setScreenMain();
-            }
-        });
-    }
+//    private void setScreenMain(){
+//        setContentView(R.layout.activity_main);
+//
+//        Button sendButton = findViewById(R.id.send_button);
+//        sendButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setScreenSub();
+//            }
+//        });
+//    }
+//
+//    private void setScreenSub(){
+//        setContentView(R.layout.activity_sub);
+//
+//        Button returnButton = findViewById(R.id.return_button);
+//        returnButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setScreenMain();
+//            }
+//        });
+//    }
 
 
     @Override

@@ -15,16 +15,16 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/item2"
-        android:title="@string/menu_item2"
-        android:orderInCategory="300"
-        app:showAsAction="never" />
+    android:id="@+id/item2"
+    android:title="@string/menu_item2"
+    android:orderInCategory="300"
+    app:showAsAction="never" />
 
-    <!--<item-->
-        <!--android:id="@+id/item3"-->
-        <!--android:title="@string/menu_item3"-->
-        <!--android:orderInCategory="400"-->
-        <!--app:showAsAction="never" />-->
+    <item
+        android:id="@+id/item3"
+        android:title="@string/menu_item3"
+        android:orderInCategory="400"
+        app:showAsAction="never" />
 
     <!--<item-->
         <!--android:id="@+id/item4"-->

@@ -31,6 +31,7 @@
 
         <activity android:name=".faucet"/>
         <activity android:name=".aboutDPM"/>
+        <activity android:name=".Terms"/>
 
     </application>
 

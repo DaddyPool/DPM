@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DaddyPoolMonitor</string>
-    <string name="app_ver">DaddyPoolMonitor ver.1.0.1</string>
+    <string name="app_ver">DaddyPoolMonitor ver.1.0.2</string>
     <string name="no_text">"No text !"</string>
     <string name="saved">Saved</string>
     <string name="read_error">Read file error !</string>
@@ -11,6 +11,12 @@
     <string name="menu_item2">ライセンス</string>
     <string name="menu_item3">利用規約</string>
     <string name="menu_item4">TestVer2.0</string>
+    <string-array name="serverlist">
+    <item>DaddyPool</item>
+    <item>MacyanPool</item>
+</string-array>
+
+
     <!--<string name="menu_item5">アクティビティ5</string>-->
     <string name="terms">Daddy Pool Monitor 利用規約\n
 \n

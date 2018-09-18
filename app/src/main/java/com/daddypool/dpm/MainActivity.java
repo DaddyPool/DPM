@@ -17,11 +17,13 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +74,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
+import android.widget.Spinner;
 //<<グラフ追加
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<JSONObject> {
@@ -94,8 +97,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private int MaxHash;
     private int MinHash;
     private String[] addresslist;
-
-
+    private String serveraddress ="zny.daddy-pool.work";
+    private String Daddy ="DaddyPool";
+    private String Macyan ="MacyanPool";
+    // サーバー選択肢
+    private String spinnerItems[] = {"DaddyPool", "MacyanPool"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,6 +130,43 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mAdView.loadAd(adRequest);
         //<<  広告用
 
+
+        //サーバー選択用
+        Spinner spinner = findViewById(R.id.spinner);
+
+        // ArrayAdapter
+        ArrayAdapter<String> adapter
+                = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, spinnerItems);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // spinner に adapter をセット
+        spinner.setAdapter(adapter);
+
+        // リスナーを登録
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            //　アイテムが選択された時
+            @Override
+            public void onItemSelected(AdapterView<?> parent,
+                                       View view, int position, long id) {
+                Spinner spinner = (Spinner)parent;
+                String item = (String)spinner.getSelectedItem();
+
+                if (item.equals(Daddy)) {
+                    serveraddress ="zny.daddy-pool.work";
+                }
+                if (item.equals(Macyan)) {
+                    serveraddress ="macyan.net:8080";
+                }
+            }
+
+            //　アイテムが選択されなかった
+            public void onNothingSelected(AdapterView<?> parent) {
+                //
+            }
+        });
+
         textDiffData = findViewById(R.id.textDiffData);
         textHashData = findViewById(R.id.textHashData);
         textBalData = findViewById(R.id.textBalData);
@@ -137,7 +180,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
-
 
         //保存してあるアドレスがあれば読み込んで表示する
         String str = readFile(fileName);
@@ -164,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     }
                 }, 1000L);
                 // エディットテキストのテキストを取得
+//                serveraddress = editText.getText().toString();
                 text = editText.getText().toString();
                 // JSONの取得
                 GetJsonData();
@@ -231,31 +274,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
 
-    //蛇口用画面遷移部分
-//    private void setScreenMain(){
-//        setContentView(R.layout.activity_main);
-//
-//        Button sendButton = findViewById(R.id.send_button);
-//        sendButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                setScreenSub();
-//            }
-//        });
-//    }
-//
-//    private void setScreenSub(){
-//        setContentView(R.layout.activity_sub);
-//
-//        Button returnButton = findViewById(R.id.return_button);
-//        returnButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                setScreenMain();
-//            }
-//        });
-//    }
-
 
     @Override
     //QRコード読み取り後の処理
@@ -314,21 +332,22 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public Loader<JSONObject> onCreateLoader(int id, Bundle args) {
 
         String urlText = "";
-
         //MyData 用Json取得　API（http://zny.daddy-pool.work/api/worker_stats?）
         if (id == 1){
 //         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
-            urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
+//            urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
+            urlText ="http://"+serveraddress+"/api/worker_stats?"+ text ;
         }
 
         //PoolStats 用Json取得　API（http://zny.daddy-pool.work/api/stats）
         if (id == 2){
-            urlText = "http://zny.daddy-pool.work/api/stats";
+//            urlText = "http://zny.daddy-pool.work/api/stats";
+            urlText = "http://"+serveraddress+"/api/stats";
         }
         //グラフ 用Json取得　API（http://zny.daddy-pool.work/api/worker_stats?）
         if (id == 3){
 //         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
-            urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
+            urlText = "http://"+serveraddress+"/api/worker_stats?"+ text ;
         }
 
 

@@ -102,10 +102,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String Daddy ="DaddyPool";
     private String Macyan ="MacyanPool-ZENY";
     private String Macyan2 ="MacyanPool-BELL";
+    private String Macyan3 ="MacyanPool-MONA";
 
 
     // サーバー選択肢
-    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL"};
+    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL","MacyanPool-MONA"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,7 +167,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 if (item.equals(Macyan2)) {
                     serveraddress ="macyan.net:8080";
                     Currency ="bellcoin";
-
+                }
+                if (item.equals(Macyan3)) {
+                    serveraddress ="macyan.net:8080";
+                    Currency ="monacoin";
                 }
             }
 

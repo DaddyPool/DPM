@@ -32,6 +32,15 @@
         <activity android:name=".faucet"/>
         <activity android:name=".aboutDPM"/>
         <activity android:name=".Terms"/>
+        <activity
+            android:name=".MainActivity2"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

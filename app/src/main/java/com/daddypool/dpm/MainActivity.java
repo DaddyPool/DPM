@@ -98,10 +98,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private int MinHash;
     private String[] addresslist;
     private String serveraddress ="zny.daddy-pool.work";
+    private String Currency ="bitzeny";
     private String Daddy ="DaddyPool";
-    private String Macyan ="MacyanPool";
+    private String Macyan ="MacyanPool-ZENY";
+    private String Macyan2 ="MacyanPool-BELL";
+
+
     // サーバー選択肢
-    private String spinnerItems[] = {"DaddyPool", "MacyanPool"};
+    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,9 +157,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 if (item.equals(Daddy)) {
                     serveraddress ="zny.daddy-pool.work";
+                    Currency ="bitzeny";
                 }
                 if (item.equals(Macyan)) {
                     serveraddress ="macyan.net:8080";
+                    Currency ="bitzeny";
+                }
+                if (item.equals(Macyan2)) {
+                    serveraddress ="macyan.net:8080";
+                    Currency ="bellcoin";
+
                 }
             }
 
@@ -388,14 +399,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 //PoolStatsの表示
                 if (loader.getId()==2){
                     JSONObject jsonObject = data.getJSONObject("pools");
-                    textWorkersData.setText(jsonObject.getJSONObject("bitzeny").getString("workerCount"));
-                    textMinerData.setText(jsonObject.getJSONObject("bitzeny").getString("minerCount"));
-                    textHashu.setText(jsonObject.getJSONObject("bitzeny").getString("hashrateString"));
+                    textWorkersData.setText(jsonObject.getJSONObject(Currency).getString("workerCount"));
+                    textMinerData.setText(jsonObject.getJSONObject(Currency).getString("minerCount"));
+                    textHashu.setText(jsonObject.getJSONObject(Currency).getString("hashrateString"));
 
                     // 入力補完リストを読み込む
                     //JSONからリストを引っ張ってくる処理を入れる
 
-                    JSONArray jsonArray = jsonObject.getJSONObject("bitzeny").getJSONObject("workers").names();
+                    JSONArray jsonArray = jsonObject.getJSONObject(Currency).getJSONObject("workers").names();
                     addresslist = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++) {
                         addresslist[i] = jsonArray.getString(i);

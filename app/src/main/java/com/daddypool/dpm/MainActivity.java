@@ -86,9 +86,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView textWorkersData;
     private TextView textMinerData;
     private TextView textHashu;
-    private TextView textLuckDayData;
-    private TextView textLuckHoursData;
-    private TextView textSharesData;
+//    private TextView textLuckDayData;
+//    private TextView textLuckHoursData;
+//    private TextView textSharesData;
     private EditText editText;
     private String fileName = "Address.txt";
     private String text ="";
@@ -187,9 +187,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         textWorkersData = findViewById(R.id.textWorkersData);
         textMinerData = findViewById(R.id.textMinerData);
         textHashu = findViewById(R.id.textHash);
-        textLuckDayData = findViewById(R.id.textLuckDayData);
-        textLuckHoursData = findViewById(R.id.textLuckHoursData);
-        textSharesData = findViewById(R.id.textSharesData);
+//        textLuckDayData = findViewById(R.id.textLuckDayData);
+//        textLuckHoursData = findViewById(R.id.textLuckHoursData);
+//        textSharesData = findViewById(R.id.textSharesData);
 
         textView = findViewById(R.id.textView2);
         editText = findViewById(R.id.editText);
@@ -383,9 +383,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         textHashData.setText("NoData");
                         textBalData.setText("NoData");
                         textPaidData.setText("NoData");
-                        textLuckDayData.setText("NoData");
-                        textLuckHoursData.setText("NoData");
-                        textSharesData.setText("NoData");
+//                        textLuckDayData.setText("NoData");
+//                        textLuckHoursData.setText("NoData");
+//                        textSharesData.setText("NoData");
                     }
                     else{
                     addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
@@ -393,9 +393,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
                     textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
                     textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
-                    textLuckDayData.setText(jsonObject.getJSONObject(addressname).getString("luckDays"));
-                    textLuckHoursData.setText(jsonObject.getJSONObject(addressname).getString("luckHours"));
-                    textSharesData.setText(jsonObject.getJSONObject(addressname).getString("shares"));
+//                    textLuckDayData.setText(jsonObject.getJSONObject(addressname).getString("luckDays"));
+//                    textLuckHoursData.setText(jsonObject.getJSONObject(addressname).getString("luckHours"));
+//                    textSharesData.setText(jsonObject.getJSONObject(addressname).getString("shares"));
 
                     }
 

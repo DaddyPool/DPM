@@ -172,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     serveraddress ="macyan.net:8080";
                     Currency ="monacoin";
                 }
+                GetJsonData();
             }
 
             //　アイテムが選択されなかった

@@ -159,19 +159,36 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 if (item.equals(Daddy)) {
                     serveraddress ="zny.daddy-pool.work";
                     Currency ="bitzeny";
+                    fileName = "Daddybitzeny.txt";
                 }
                 if (item.equals(Macyan)) {
                     serveraddress ="macyan.net:8080";
                     Currency ="bitzeny";
+                    fileName = "Macyanbitzeny.txt";
                 }
                 if (item.equals(Macyan2)) {
                     serveraddress ="macyan.net:8080";
                     Currency ="bellcoin";
+                    fileName = "Macyanbellcoin.txt";
                 }
                 if (item.equals(Macyan3)) {
                     serveraddress ="macyan.net:8080";
                     Currency ="monacoin";
+                    fileName = "Macyanmonacoin.txt";
                 }
+                //保存してあるアドレスがあれば読み込んで表示する
+                String str = readFile(fileName);
+                if (str != null) {
+                    textView.setText(str);
+                    editText.setText(str);
+                } else {
+                    textView.setText(R.string.read_error);
+                    editText.setText("");
+                    HashHistorys = null;
+
+                }
+                // エディットテキストのテキストを取得
+                text = editText.getText().toString();
                 GetJsonData();
             }
 
@@ -202,6 +219,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             editText.setText(str);
         } else {
             textView.setText(R.string.read_error);
+            editText.setText("");
         }
         // エディットテキストのテキストを取得
         text = editText.getText().toString();
@@ -479,6 +497,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             } catch (JSONException e) {
                 Log.d("onLoadFinished","JSONのパースに失敗しました。 JSONException=" + e);
+                textDiffData.setText("NoData");
+                textHashData.setText("NoData");
+                textBalData.setText("NoData");
+                textPaidData.setText("NoData");
+                setData();
             }
         }else{
             Log.d("onLoadFinished", "onLoadFinished error!");

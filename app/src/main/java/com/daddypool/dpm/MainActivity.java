@@ -648,7 +648,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 return true;
             case R.id.item4:
                 Intent varIntent4 =
-                        new Intent(MainActivity.this, MainActivity2.class);
+                        new Intent(MainActivity.this, Main3Activity.class);
                 startActivity(varIntent4);
                 finish();
                 return true;

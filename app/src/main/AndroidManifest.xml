@@ -28,10 +28,9 @@
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-
-        <activity android:name=".faucet"/>
-        <activity android:name=".aboutDPM"/>
-        <activity android:name=".Terms"/>
+        <activity android:name=".faucet" />
+        <activity android:name=".aboutDPM" />
+        <activity android:name=".Terms" />
         <activity
             android:name=".MainActivity2"
             android:theme="@style/SplashTheme">
@@ -41,7 +40,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".Main3Activity"
+            android:label="@string/title_activity_main3"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

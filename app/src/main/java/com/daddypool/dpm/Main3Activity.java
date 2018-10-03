@@ -159,12 +159,12 @@ public class Main3Activity extends AppCompatActivity  {
                         new Intent(Main3Activity.this, Terms.class);
                 startActivity(varIntent3);
                 return true;
-            case R.id.item4:
-                Intent varIntent4 =
-                        new Intent(Main3Activity.this, Main3Activity.class);
-                startActivity(varIntent4);
-                finish();
-                return true;
+//            case R.id.item4:
+//                Intent varIntent4 =
+//                        new Intent(Main3Activity.this, Main3Activity.class);
+//                startActivity(varIntent4);
+//                finish();
+//                return true;
 //            case R.id.item5:
 //                Intent varIntent5 =
 //                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);

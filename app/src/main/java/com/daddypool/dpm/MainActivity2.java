@@ -599,12 +599,12 @@ public class MainActivity2 extends AppCompatActivity implements LoaderManager.Lo
                             new Intent(MainActivity2.this, Terms.class);
                     startActivity(varIntent3);
                     return true;
-                case R.id.item4:
-                    Intent varIntent4 =
-                            new Intent(MainActivity2.this, MainActivity2.class);
-                    startActivity(varIntent4);
-                    finish();
-                    return true;
+//                case R.id.item4:
+//                    Intent varIntent4 =
+//                            new Intent(MainActivity2.this, MainActivity2.class);
+//                    startActivity(varIntent4);
+//                    finish();
+//                    return true;
 //            case R.id.item5:
 //                Intent varIntent5 =
 //                        new Intent(MainActivity.this, OssLicensesMenuActivity.class);

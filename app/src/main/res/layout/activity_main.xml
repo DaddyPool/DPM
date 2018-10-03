@@ -405,7 +405,7 @@
         android:layout_width="match_parent"
         android:layout_height="76dp"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:adUnitId="ca-app-pub-3125769458134434/8896807198"
         app:layout_constraintBottom_toBottomOf="parent">
 
     </com.google.android.gms.ads.AdView>

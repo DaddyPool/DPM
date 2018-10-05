@@ -32,11 +32,11 @@
         <!--android:orderInCategory="500"-->
         <!--app:showAsAction="never" />-->
 
-    <!--<item-->
-        <!--android:id="@+id/item5"-->
-        <!--android:title="@string/menu_item5"-->
-        <!--android:orderInCategory="600"-->
-        <!--app:showAsAction="never" />-->
+    <item
+        android:id="@+id/item5"
+        android:title="@string/menu_item5"
+        android:orderInCategory="600"
+        app:showAsAction="never" />
 
 
 

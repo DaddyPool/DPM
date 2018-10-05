@@ -29,6 +29,7 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <activity android:name=".faucet" />
+        <activity android:name=".privacy" />
         <activity android:name=".aboutDPM" />
         <activity android:name=".Terms" />
         <activity

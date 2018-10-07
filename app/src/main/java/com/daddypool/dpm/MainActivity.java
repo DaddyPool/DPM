@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //    private TextView textLuckDayData;
 //    private TextView textLuckHoursData;
 //    private TextView textSharesData;
+    private TextView pool_stats;
     private EditText editText;
     private String fileName = "Address.txt";
     private String text ="";
@@ -157,26 +158,30 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                                        View view, int position, long id) {
                 Spinner spinner = (Spinner)parent;
                 String item = (String)spinner.getSelectedItem();
-
+                pool_stats = findViewById(R.id.textPoolStats);
                 if (item.equals(Daddy)) {
                     serveraddress ="zny.daddy-pool.work";
                     Currency ="bitzeny";
                     fileName = "Daddybitzeny.txt";
+                    pool_stats.setText("●Bitzeny Pool Stats");
                 }
                 if (item.equals(Macyan)) {
                     serveraddress ="macyan.net:8080";
                     Currency ="bitzeny";
                     fileName = "Macyanbitzeny.txt";
+                    pool_stats.setText("●Bitzeny Pool Stats");
                 }
                 if (item.equals(Macyan2)) {
                     serveraddress ="macyan.net:8080";
                     Currency ="bellcoin";
                     fileName = "Macyanbellcoin.txt";
+                    pool_stats.setText("●Bellcoin Pool Stats");
                 }
                 if (item.equals(Macyan3)) {
                     serveraddress ="macyan.net:8080";
                     Currency ="monacoin";
                     fileName = "Macyanmonacoin.txt";
+                    pool_stats.setText("●Monacoin Pool Stats");
                 }
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);

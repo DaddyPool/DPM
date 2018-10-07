@@ -9,6 +9,8 @@
     <string name="kousin">更新</string>
     <string name="Address">Address</string>
     <string name="Pool_Stats">●Bitzeny Pool Stats</string>
+    <string name="Pool_StatsM">●Monacoin Pool Stats</string>
+    <string name="Pool_StatsB">●Bellcoin Pool Stats</string>
     <string name="MyData">●MyData</string>
     <string name="xxx">xxx</string>
     <string name="Miners">Miners</string>

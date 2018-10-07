@@ -314,12 +314,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         String qrAddress = null;
-        qrAddress = result.getContents();
+        qrAddress = result.getContents().replace("bitzeny:", "").replace("monacoin:", "").replace("bellcoin:", "");
         if(qrAddress != null) {
             //読み取った情報を入力テキストへセット
-//            qrAddress.substring(8,34);
             qrAddress.trim();
-            editText.setText( qrAddress.substring(8,42));
+//            editText.setText( qrAddress.substring(8,42));
+            editText.setText( qrAddress.substring(0,34));
             Log.d("readQR", qrAddress);
         } else {
             super.onActivityResult(requestCode, resultCode, data);

@@ -5,6 +5,7 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -76,6 +77,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Date;
 import android.widget.Spinner;
+
 //<<グラフ追加
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<JSONObject> {
@@ -319,7 +321,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         String qrAddress = null;
+
+        if (result.getContents()== null){
+            return;
+        }
         qrAddress = result.getContents().replace("bitzeny:", "").replace("monacoin:", "").replace("bellcoin:", "");
+
         if(qrAddress != null) {
             //読み取った情報を入力テキストへセット
             qrAddress.trim();
@@ -330,6 +337,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+
     // ファイルを保存
     public void saveFile(String file, String str) {
 

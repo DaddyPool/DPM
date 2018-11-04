@@ -101,16 +101,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private int MaxHash;
     private int MinHash;
     private String[] addresslist;
-    private String serveraddress ="zny.daddy-pool.work";
+    private String serveraddress ="http://zny.daddy-pool.work";
     private String Currency ="bitzeny";
     private String Daddy ="DaddyPool";
     private String Macyan ="MacyanPool-ZENY";
     private String Macyan2 ="MacyanPool-BELL";
     private String Macyan3 ="MacyanPool-MONA";
+    private String mofumofu ="MOFUMOFU-ZENY";
+    private String mofumofu2 ="MOFUMOFU-KOTO";
+    private String mofumofu3 ="MOFUMOFU-SUSU";
 
 
     // サーバー選択肢
-    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL","MacyanPool-MONA"};
+    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL","MacyanPool-MONA","MOFUMOFU-ZENY","MOFUMOFU-KOTO","MOFUMOFU-SUSU"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,28 +165,46 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 String item = (String)spinner.getSelectedItem();
                 pool_stats = findViewById(R.id.textPoolStats);
                 if (item.equals(Daddy)) {
-                    serveraddress ="zny.daddy-pool.work";
+                    serveraddress ="http://zny.daddy-pool.work";
                     Currency ="bitzeny";
                     fileName = "Daddybitzeny.txt";
                     pool_stats.setText("●Bitzeny Pool Stats");
                 }
                 if (item.equals(Macyan)) {
-                    serveraddress ="macyan.net:8080";
+                    serveraddress ="http://macyan.net:8080";
                     Currency ="bitzeny";
                     fileName = "Macyanbitzeny.txt";
                     pool_stats.setText("●Bitzeny Pool Stats");
                 }
                 if (item.equals(Macyan2)) {
-                    serveraddress ="macyan.net:8080";
+                    serveraddress ="http://macyan.net:8080";
                     Currency ="bellcoin";
                     fileName = "Macyanbellcoin.txt";
                     pool_stats.setText("●Bellcoin Pool Stats");
                 }
                 if (item.equals(Macyan3)) {
-                    serveraddress ="macyan.net:8080";
+                    serveraddress ="http://macyan.net:8080";
                     Currency ="monacoin";
                     fileName = "Macyanmonacoin.txt";
                     pool_stats.setText("●Monacoin Pool Stats");
+                }
+                if (item.equals(mofumofu)) {
+                    serveraddress ="https://zny.mofumofu.me";
+                    Currency ="bitzeny";
+                    fileName = "Mofumofubitzeny.txt";
+                    pool_stats.setText("●Bitzeny Pool Stats");
+                }
+                if (item.equals(mofumofu2)) {
+                    serveraddress ="https://koto.mofumofu.me";
+                    Currency ="koto";
+                    fileName = "Mofumofukotocoin.txt";
+                    pool_stats.setText("●Koto Pool Stats");
+                }
+                if (item.equals(mofumofu3)) {
+                    serveraddress ="https://susu.mofumofu.me";
+                    Currency ="susucoin";
+                    fileName = "Mofumofususucoin.txt";
+                    pool_stats.setText("●Susu Pool Stats");
                 }
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);
@@ -325,7 +346,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (result.getContents()== null){
             return;
         }
-        qrAddress = result.getContents().replace("bitzeny:", "").replace("monacoin:", "").replace("bellcoin:", "");
+        qrAddress = result.getContents().replace("bitzeny:", "").replace("monacoin:", "").replace("bellcoin:", "").replace("koto:", "").replace("susucoin:", "");
 
         if(qrAddress != null) {
             //読み取った情報を入力テキストへセット
@@ -384,18 +405,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (id == 1){
 //         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
 //            urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
-            urlText ="http://"+serveraddress+"/api/worker_stats?"+ text ;
+            urlText = serveraddress+"/api/worker_stats?"+ text ;
         }
 
         //PoolStats 用Json取得　API（http://zny.daddy-pool.work/api/stats）
         if (id == 2){
 //            urlText = "http://zny.daddy-pool.work/api/stats";
-            urlText = "http://"+serveraddress+"/api/stats";
+            urlText = serveraddress+"/api/stats";
         }
         //グラフ 用Json取得　API（http://zny.daddy-pool.work/api/worker_stats?）
         if (id == 3){
 //         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
-            urlText = "http://"+serveraddress+"/api/worker_stats?"+ text ;
+            urlText = serveraddress+"/api/worker_stats?"+ text ;
         }
 
 

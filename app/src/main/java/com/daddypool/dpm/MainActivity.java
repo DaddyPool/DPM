@@ -160,52 +160,54 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             //　アイテムが選択された時
             @Override
             public void onItemSelected(AdapterView<?> parent,
-                                       View view, int position, long id) {
+                View view, int position, long id) {
                 Spinner spinner = (Spinner)parent;
-                String item = (String)spinner.getSelectedItem();
                 pool_stats = findViewById(R.id.textPoolStats);
-                if (item.equals(Daddy)) {
-                    serveraddress ="http://zny.daddy-pool.work";
-                    Currency ="bitzeny";
-                    fileName = "Daddybitzeny.txt";
-                    pool_stats.setText("●Bitzeny Pool Stats");
-                }
-                if (item.equals(Macyan)) {
-                    serveraddress ="http://macyan.net:8080";
-                    Currency ="bitzeny";
-                    fileName = "Macyanbitzeny.txt";
-                    pool_stats.setText("●Bitzeny Pool Stats");
-                }
-                if (item.equals(Macyan2)) {
-                    serveraddress ="http://macyan.net:8080";
-                    Currency ="bellcoin";
-                    fileName = "Macyanbellcoin.txt";
-                    pool_stats.setText("●Bellcoin Pool Stats");
-                }
-                if (item.equals(Macyan3)) {
-                    serveraddress ="http://macyan.net:8080";
-                    Currency ="monacoin";
-                    fileName = "Macyanmonacoin.txt";
-                    pool_stats.setText("●Monacoin Pool Stats");
-                }
-                if (item.equals(mofumofu)) {
-                    serveraddress ="https://zny.mofumofu.me";
-                    Currency ="bitzeny";
-                    fileName = "Mofumofubitzeny.txt";
-                    pool_stats.setText("●Bitzeny Pool Stats");
-                }
-                if (item.equals(mofumofu2)) {
-                    serveraddress ="https://koto.mofumofu.me";
-                    Currency ="koto";
-                    fileName = "Mofumofukotocoin.txt";
-                    pool_stats.setText("●Koto Pool Stats");
-                }
-                if (item.equals(mofumofu3)) {
-                    serveraddress ="https://susu.mofumofu.me";
-                    Currency ="susucoin";
-                    fileName = "Mofumofususucoin.txt";
-                    pool_stats.setText("●Susu Pool Stats");
-                }
+                switch ((String)spinner.getSelectedItem())
+                    {
+                        case "DaddyPool":
+                            serveraddress ="http://zny.daddy-pool.work";
+                            Currency ="bitzeny";
+                            fileName = "Daddybitzeny.txt";
+                            pool_stats.setText("●Bitzeny Pool Stats");
+                            break;
+                        case "MacyanPool-ZENY":
+                            serveraddress ="http://macyan.net:8080";
+                            Currency ="bitzeny";
+                            fileName = "Macyanbitzeny.txt";
+                            pool_stats.setText("●Bitzeny Pool Stats");
+                            break;
+                        case "MacyanPool-BELL":
+                            serveraddress ="http://macyan.net:8080";
+                            Currency ="bellcoin";
+                            fileName = "Macyanbellcoin.txt";
+                            pool_stats.setText("●Bellcoin Pool Stats");
+                            break;
+                        case "MacyanPool-MONA":
+                            serveraddress ="http://macyan.net:8080";
+                            Currency ="monacoin";
+                            fileName = "Macyanmonacoin.txt";
+                            pool_stats.setText("●Monacoin Pool Stats");
+                            break;
+                        case "MOFUMOFU-ZENY":
+                            serveraddress ="https://zny.mofumofu.me";
+                            Currency ="bitzeny";
+                            fileName = "Mofumofubitzeny.txt";
+                            pool_stats.setText("●Bitzeny Pool Stats");
+                            break;
+                        case "MOFUMOFU-KOTO":
+                            serveraddress ="https://koto.mofumofu.me";
+                            Currency ="koto";
+                            fileName = "Mofumofukotocoin.txt";
+                            pool_stats.setText("●Koto Pool Stats");
+                            break;
+                        case "MOFUMOFU-SUSU":
+                            serveraddress ="https://susu.mofumofu.me";
+                            Currency ="susucoin";
+                            fileName = "Mofumofususucoin.txt";
+                            pool_stats.setText("●Susu Pool Stats");
+                            break;
+                    }
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);
                 if (str != null) {
@@ -432,9 +434,28 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data != null) {
             try {
                 //MyData の表示
-                if (loader.getId()==1){
+
+                if (loader.getId()==1) {
+                    //KOTO用
+//                    if (Currency.equals("koto"));
+//                        JSONObject jsonObject = data.getJSONObject("workers");
+//                        if (jsonObject.length() == 0){
+//                            textDiffData.setText("NoData");
+//                            textHashData.setText("NoData");
+//                            textBalData.setText("NoData");
+//                            textPaidData.setText("NoData");
+//
+//                        }
+//                        else {
+//                            addressname = jsonObject.names().toString();
+//                            textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
+//                            textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
+//                            textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
+//                            textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
+//                        }
+//                }else{
                     JSONObject jsonObject = data.getJSONObject("workers");
-                    if (jsonObject.length() == 0){
+                    if (jsonObject.length() == 0) {
                         textDiffData.setText("NoData");
                         textHashData.setText("NoData");
                         textBalData.setText("NoData");
@@ -442,13 +463,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //                        textLuckDayData.setText("NoData");
 //                        textLuckHoursData.setText("NoData");
 //                        textSharesData.setText("NoData");
-                    }
-                    else{
-                    addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
-                    textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
-                    textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
-                    textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
-                    textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
+                    } else if (Currency.equals("koto")){
+                        JSONObject kotoObject = jsonObject.getJSONObject(text);
+                        addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
+                        textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
+                        textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
+                        textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
+                        textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
+                    }else{
+                        addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
+                        textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
+                        textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
+                        textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
+                        textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
 //                    textLuckDayData.setText(jsonObject.getJSONObject(addressname).getString("luckDays"));
 //                    textLuckHoursData.setText(jsonObject.getJSONObject(addressname).getString("luckHours"));
 //                    textSharesData.setText(jsonObject.getJSONObject(addressname).getString("shares"));

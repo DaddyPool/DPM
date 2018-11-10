@@ -103,13 +103,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String[] addresslist;
     private String serveraddress ="http://zny.daddy-pool.work";
     private String Currency ="bitzeny";
-    private String Daddy ="DaddyPool";
-    private String Macyan ="MacyanPool-ZENY";
-    private String Macyan2 ="MacyanPool-BELL";
-    private String Macyan3 ="MacyanPool-MONA";
-    private String mofumofu ="MOFUMOFU-ZENY";
-    private String mofumofu2 ="MOFUMOFU-KOTO";
-    private String mofumofu3 ="MOFUMOFU-SUSU";
+    private String NoData ="NoData";
 
 
     // サーバー選択肢
@@ -436,42 +430,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 //MyData の表示
 
                 if (loader.getId()==1) {
-                    //KOTO用
-//                    if (Currency.equals("koto"));
-//                        JSONObject jsonObject = data.getJSONObject("workers");
-//                        if (jsonObject.length() == 0){
-//                            textDiffData.setText("NoData");
-//                            textHashData.setText("NoData");
-//                            textBalData.setText("NoData");
-//                            textPaidData.setText("NoData");
-//
-//                        }
-//                        else {
-//                            addressname = jsonObject.names().toString();
-//                            textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
-//                            textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
-//                            textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
-//                            textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
-//                        }
-//                }else{
+
                     JSONObject jsonObject = data.getJSONObject("workers");
                     if (jsonObject.length() == 0) {
-                        textDiffData.setText("NoData");
-                        textHashData.setText("NoData");
-                        textBalData.setText("NoData");
-                        textPaidData.setText("NoData");
+                        textDiffData.setText(NoData);
+                        textHashData.setText(NoData);
+                        textBalData.setText(NoData);
+                        textPaidData.setText(NoData);
 //                        textLuckDayData.setText("NoData");
 //                        textLuckHoursData.setText("NoData");
 //                        textSharesData.setText("NoData");
-                    } else if (Currency.equals("koto")){
-                        JSONObject kotoObject = jsonObject.getJSONObject(text);
-                        addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
-                        textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
-                        textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
-                        textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
-                        textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
                     }else{
-                        addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
+                        addressname = text.replace("\"", "").replace("[","").replace("]","");
                         textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
                         textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
                         textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
@@ -515,7 +485,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         setData();
                         return;}
                     else{
-                    addressname = jsonObject.names().toString().replace("\"", "").replace("[","").replace("]","");
+                    addressname = text.replace("\"", "").replace("[","").replace("]","");
                     }
                     JSONArray jsonArray = jsonObject.getJSONArray(addressname);
 
@@ -561,10 +531,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             } catch (JSONException e) {
                 Log.d("onLoadFinished","JSONのパースに失敗しました。 JSONException=" + e);
-                textDiffData.setText("NoData");
-                textHashData.setText("NoData");
-                textBalData.setText("NoData");
-                textPaidData.setText("NoData");
+//                textDiffData.setText("NoData");
+//                textHashData.setText("NoData");
+//                textBalData.setText("NoData");
+//                textPaidData.setText("NoData");
                 setData();
             }
         }else{

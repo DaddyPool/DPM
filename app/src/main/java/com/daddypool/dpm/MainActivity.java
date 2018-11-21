@@ -44,16 +44,12 @@ import java.util.ArrayList;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import com.google.android.gms.ads.MobileAds;
 
 //>>グラフ追加
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -67,9 +63,6 @@ import com.google.zxing.integration.android.IntentResult;
 
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -107,7 +100,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     // サーバー選択肢
-    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL","MacyanPool-MONA","MOFUMOFU-ZENY","MOFUMOFU-KOTO","MOFUMOFU-SUSU"};
+//    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL","MacyanPool-MONA","MOFUMOFU-ZENY","MOFUMOFU-KOTO","MOFUMOFU-SUSU"};
+    private String spinnerItems[] = {"DaddyPool", "MacyanPool","MOFUMOFU"};
+    // 通貨選択肢
+    private String spinnerItemsC[] = {"ZENY", "MONA","BELL"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,6 +133,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         //<<  広告用
 
 
+        //通貨選択用
+        final Spinner spinnerCurrency = findViewById(R.id.spinnercurrency);
+        // ArrayAdapter
+        final ArrayAdapter<String> adapterCurrency
+                = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, spinnerItemsC);
+
+        adapterCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         //サーバー選択用
         Spinner spinner = findViewById(R.id.spinner);
 
@@ -143,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         ArrayAdapter<String> adapter
                 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, spinnerItems);
+
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -156,7 +163,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onItemSelected(AdapterView<?> parent,
                 View view, int position, long id) {
                 Spinner spinner = (Spinner)parent;
+                adapterCurrency.clear();
                 pool_stats = findViewById(R.id.textPoolStats);
+
                 switch ((String)spinner.getSelectedItem())
                     {
                         case "DaddyPool":
@@ -164,43 +173,55 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                             Currency ="bitzeny";
                             fileName = "Daddybitzeny.txt";
                             pool_stats.setText("●Bitzeny Pool Stats");
+
+                            // spinnerCurrency に adapter をセット
+                            adapterCurrency.add("ZENY");
+                            spinnerCurrency.setAdapter(adapterCurrency);
                             break;
-                        case "MacyanPool-ZENY":
+                        case "MacyanPool":
                             serveraddress ="http://macyan.net:8080";
                             Currency ="bitzeny";
                             fileName = "Macyanbitzeny.txt";
                             pool_stats.setText("●Bitzeny Pool Stats");
+                            adapterCurrency.add("ZENY");
+                            adapterCurrency.add("BELL");
+                            adapterCurrency.add("MONA");
+                            spinnerCurrency.setAdapter(adapterCurrency);
                             break;
-                        case "MacyanPool-BELL":
-                            serveraddress ="http://macyan.net:8080";
-                            Currency ="bellcoin";
-                            fileName = "Macyanbellcoin.txt";
-                            pool_stats.setText("●Bellcoin Pool Stats");
-                            break;
-                        case "MacyanPool-MONA":
-                            serveraddress ="http://macyan.net:8080";
-                            Currency ="monacoin";
-                            fileName = "Macyanmonacoin.txt";
-                            pool_stats.setText("●Monacoin Pool Stats");
-                            break;
-                        case "MOFUMOFU-ZENY":
+//                        case "MacyanPool-BELL":
+//                            serveraddress ="http://macyan.net:8080";
+//                            Currency ="bellcoin";
+//                            fileName = "Macyanbellcoin.txt";
+//                            pool_stats.setText("●Bellcoin Pool Stats");
+//                            break;
+//                        case "MacyanPool-MONA":
+//                            serveraddress ="http://macyan.net:8080";
+//                            Currency ="monacoin";
+//                            fileName = "Macyanmonacoin.txt";
+//                            pool_stats.setText("●Monacoin Pool Stats");
+//                            break;
+                        case "MOFUMOFU":
                             serveraddress ="https://zny.mofumofu.me";
                             Currency ="bitzeny";
                             fileName = "Mofumofubitzeny.txt";
                             pool_stats.setText("●Bitzeny Pool Stats");
+                            adapterCurrency.add("ZENY");
+                            adapterCurrency.add("KOTO");
+                            adapterCurrency.add("SUSU");
+                            spinnerCurrency.setAdapter(adapterCurrency);
                             break;
-                        case "MOFUMOFU-KOTO":
-                            serveraddress ="https://koto.mofumofu.me";
-                            Currency ="koto";
-                            fileName = "Mofumofukotocoin.txt";
-                            pool_stats.setText("●Koto Pool Stats");
-                            break;
-                        case "MOFUMOFU-SUSU":
-                            serveraddress ="https://susu.mofumofu.me";
-                            Currency ="susucoin";
-                            fileName = "Mofumofususucoin.txt";
-                            pool_stats.setText("●Susu Pool Stats");
-                            break;
+//                        case "MOFUMOFU-KOTO":
+//                            serveraddress ="https://koto.mofumofu.me";
+//                            Currency ="koto";
+//                            fileName = "Mofumofukotocoin.txt";
+//                            pool_stats.setText("●Koto Pool Stats");
+//                            break;
+//                        case "MOFUMOFU-SUSU":
+//                            serveraddress ="https://susu.mofumofu.me";
+//                            Currency ="susucoin";
+//                            fileName = "Mofumofususucoin.txt";
+//                            pool_stats.setText("●Susu Pool Stats");
+//                            break;
                     }
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);

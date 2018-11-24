@@ -182,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     spC.setAdapter(adapterCurrency);
                     }
 
+                    
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);
                 if (str != null) {

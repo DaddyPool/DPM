@@ -211,21 +211,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                Spinner spinner = (Spinner) parent;
-                adapterCurrency.clear();
+                Spinner spinner2 = (Spinner) parent;
 
                 // 選択されたアイテムを取得します
-                String item = (String) spinner.getSelectedItem();
-                if (item.equals("DaddyPool")){
+                String item = (String) spinner2.getSelectedItem();
+                if (item.equals("ZENY")){
                     serveraddress ="http://zny.daddy-pool.work";
                     Currency ="bitzeny";
                     fileName = "Daddybitzeny.txt";
-                    pool_stats.setText("●Bitzeny Pool Stats");
-                }else if (item.equals("MacyanPool")){
+//                    pool_stats.setText("●Bitzeny Pool Stats");
+                }else if (item.equals("BELL")){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="bellcoin";
                     fileName = "Macyanbellcoin.txt";
-                }else if (item.equals("MOFUMOFU")){
+                }else if (item.equals("KOTO")){
                     serveraddress ="https://koto.mofumofu.me";
                     Currency ="koto";
                     fileName = "Mofumofukotocoin.txt";

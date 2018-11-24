@@ -132,97 +132,56 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         MobileAds.initialize(this, "ca-app-pub-3125769458134434~5664139191");
         //<<  広告用
 
-
         //通貨選択用
-        final Spinner spinnerCurrency = findViewById(R.id.spinnercurrency);
+//        final Spinner spinnerCurrency = findViewById(R.id.spinnercurrency);
         // ArrayAdapter
+        final ArrayAdapter<String> adapterserver
+                = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item);
+
+        adapterserver.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         final ArrayAdapter<String> adapterCurrency
                 = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, spinnerItemsC);
-
+                android.R.layout.simple_spinner_item);
         adapterCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        //サーバー選択用
-        Spinner spinner = findViewById(R.id.spinner);
+        //項目の追加
+        adapterserver.add("DaddyPool");
+        adapterserver.add("MacyanPool");
+        adapterserver.add("MOFUMOFU");
 
-        // ArrayAdapter
-        ArrayAdapter<String> adapter
-                = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, spinnerItems);
+        final Spinner spS=(Spinner)findViewById(R.id.spinnerserver);
+        final Spinner spC=(Spinner)findViewById(R.id.spinnercurrency);
 
+        //アダプターのセット
+        spS.setAdapter(adapterserver);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // spinner に adapter をセット
-        spinner.setAdapter(adapter);
-
-        // リスナーを登録
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            //　アイテムが選択された時
+        //スピナーの内容選択時に呼び出されるコールバックリスナーを登録
+        spS.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent,
-                View view, int position, long id) {
-                Spinner spinner = (Spinner)parent;
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                Spinner spinner = (Spinner) parent;
                 adapterCurrency.clear();
-                pool_stats = findViewById(R.id.textPoolStats);
 
-                switch ((String)spinner.getSelectedItem())
-                    {
-                        case "DaddyPool":
-                            serveraddress ="http://zny.daddy-pool.work";
-                            Currency ="bitzeny";
-                            fileName = "Daddybitzeny.txt";
-                            pool_stats.setText("●Bitzeny Pool Stats");
-
-                            // spinnerCurrency に adapter をセット
-                            adapterCurrency.add("ZENY");
-                            spinnerCurrency.setAdapter(adapterCurrency);
-                            break;
-                        case "MacyanPool":
-                            serveraddress ="http://macyan.net:8080";
-                            Currency ="bitzeny";
-                            fileName = "Macyanbitzeny.txt";
-                            pool_stats.setText("●Bitzeny Pool Stats");
-                            adapterCurrency.add("ZENY");
-                            adapterCurrency.add("BELL");
-                            adapterCurrency.add("MONA");
-                            spinnerCurrency.setAdapter(adapterCurrency);
-                            break;
-//                        case "MacyanPool-BELL":
-//                            serveraddress ="http://macyan.net:8080";
-//                            Currency ="bellcoin";
-//                            fileName = "Macyanbellcoin.txt";
-//                            pool_stats.setText("●Bellcoin Pool Stats");
-//                            break;
-//                        case "MacyanPool-MONA":
-//                            serveraddress ="http://macyan.net:8080";
-//                            Currency ="monacoin";
-//                            fileName = "Macyanmonacoin.txt";
-//                            pool_stats.setText("●Monacoin Pool Stats");
-//                            break;
-                        case "MOFUMOFU":
-                            serveraddress ="https://zny.mofumofu.me";
-                            Currency ="bitzeny";
-                            fileName = "Mofumofubitzeny.txt";
-                            pool_stats.setText("●Bitzeny Pool Stats");
-                            adapterCurrency.add("ZENY");
-                            adapterCurrency.add("KOTO");
-                            adapterCurrency.add("SUSU");
-                            spinnerCurrency.setAdapter(adapterCurrency);
-                            break;
-//                        case "MOFUMOFU-KOTO":
-//                            serveraddress ="https://koto.mofumofu.me";
-//                            Currency ="koto";
-//                            fileName = "Mofumofukotocoin.txt";
-//                            pool_stats.setText("●Koto Pool Stats");
-//                            break;
-//                        case "MOFUMOFU-SUSU":
-//                            serveraddress ="https://susu.mofumofu.me";
-//                            Currency ="susucoin";
-//                            fileName = "Mofumofususucoin.txt";
-//                            pool_stats.setText("●Susu Pool Stats");
-//                            break;
+                // 選択されたアイテムを取得します
+                String item = (String) spinner.getSelectedItem();
+                if (item.equals("DaddyPool")){
+                    adapterCurrency.add("ZENY");
+                    spC.setAdapter(adapterCurrency);
+                    }else if (item.equals("MacyanPool")){
+                    adapterCurrency.add("ZENY");
+                    adapterCurrency.add("BELL");
+                    adapterCurrency.add("MONA");
+                    spC.setAdapter(adapterCurrency);
+                    }else if (item.equals("MOFUMOFU")){
+                    adapterCurrency.add("ZENY");
+                    adapterCurrency.add("KOTO");
+                    adapterCurrency.add("SUSU");
+                    spC.setAdapter(adapterCurrency);
                     }
+
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);
                 if (str != null) {
@@ -237,13 +196,169 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 // エディットテキストのテキストを取得
                 text = editText.getText().toString();
                 GetJsonData();
+
+
             }
 
-            //　アイテムが選択されなかった
-            public void onNothingSelected(AdapterView<?> parent) {
-                //
-            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                }
+
         });
+        // 通貨用
+//        spC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view,
+//                                       int position, long id) {
+//                Spinner spinner = (Spinner) parent;
+//
+//
+//                // 選択されたアイテムを取得します
+//                String item = (String) spinner.getSelectedItem();
+//                if (item.equals("ZENY")){
+//                    serveraddress ="http://zny.daddy-pool.work";
+//                    Currency ="bitzeny";
+//                    fileName = "Daddybitzeny.txt";
+//                    pool_stats.setText("●Bitzeny Pool Stats");
+//                }else if (item.equals("BELL")){
+//                    serveraddress ="http://macyan.net:8080";
+//                    Currency ="bellcoin";
+//                    fileName = "Macyanbellcoin.txt";
+//                    pool_stats.setText("●Bellcoin Pool Stats");
+//                }else if (item.equals("MOFUMOFU")){
+//                    serveraddress ="https://koto.mofumofu.me";
+//                    Currency ="koto";
+//                    fileName = "Mofumofukotocoin.txt";
+//                    pool_stats.setText("●Koto Pool Stats");
+//
+//                }
+//
+//                //保存してあるアドレスがあれば読み込んで表示する
+//                String str = readFile(fileName);
+//                if (str != null) {
+//                    textView.setText(str);
+//                    editText.setText(str);
+//                } else {
+//                    textView.setText(R.string.read_error);
+//                    editText.setText("");
+//                    HashHistorys = null;
+//
+//                }
+//                // エディットテキストのテキストを取得
+//                text = editText.getText().toString();
+//                GetJsonData();
+//
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> arg0) {
+//            }
+//
+//        });
+
+//        //サーバー選択用
+//        Spinner spinner = findViewById(R.id.spinner);
+//
+//        // ArrayAdapter
+//        ArrayAdapter<String> adapter
+//                = new ArrayAdapter<>(this,
+//                android.R.layout.simple_spinner_item, spinnerItems);
+//
+//
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        // spinner に adapter をセット
+//        spinner.setAdapter(adapter);
+//
+//        // リスナーを登録
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            //　アイテムが選択された時
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent,
+//                View view, int position, long id) {
+//                Spinner spinner = (Spinner)parent;
+//                adapterCurrency.clear();
+//                pool_stats = findViewById(R.id.textPoolStats);
+//
+//                switch ((String)spinner.getSelectedItem())
+//                    {
+//                        case "DaddyPool":
+//                            serveraddress ="http://zny.daddy-pool.work";
+//                            Currency ="bitzeny";
+//                            fileName = "Daddybitzeny.txt";
+//                            pool_stats.setText("●Bitzeny Pool Stats");
+//
+//                            // spinnerCurrency に adapter をセット
+//                            adapterCurrency.add("ZENY");
+//                            spinnerCurrency.setAdapter(adapterCurrency);
+//                            break;
+//                        case "MacyanPool":
+//                            serveraddress ="http://macyan.net:8080";
+//                            Currency ="bitzeny";
+//                            fileName = "Macyanbitzeny.txt";
+//                            pool_stats.setText("●Bitzeny Pool Stats");
+//                            adapterCurrency.add("ZENY");
+//                            adapterCurrency.add("BELL");
+//                            adapterCurrency.add("MONA");
+//                            spinnerCurrency.setAdapter(adapterCurrency);
+//                            break;
+////                        case "MacyanPool-BELL":
+////                            serveraddress ="http://macyan.net:8080";
+////                            Currency ="bellcoin";
+////                            fileName = "Macyanbellcoin.txt";
+////                            pool_stats.setText("●Bellcoin Pool Stats");
+////                            break;
+////                        case "MacyanPool-MONA":
+////                            serveraddress ="http://macyan.net:8080";
+////                            Currency ="monacoin";
+////                            fileName = "Macyanmonacoin.txt";
+////                            pool_stats.setText("●Monacoin Pool Stats");
+////                            break;
+//                        case "MOFUMOFU":
+//                            serveraddress ="https://zny.mofumofu.me";
+//                            Currency ="bitzeny";
+//                            fileName = "Mofumofubitzeny.txt";
+//                            pool_stats.setText("●Bitzeny Pool Stats");
+//                            adapterCurrency.add("ZENY");
+//                            adapterCurrency.add("KOTO");
+//                            adapterCurrency.add("SUSU");
+//                            spinnerCurrency.setAdapter(adapterCurrency);
+//                            break;
+////                        case "MOFUMOFU-KOTO":
+////                            serveraddress ="https://koto.mofumofu.me";
+////                            Currency ="koto";
+////                            fileName = "Mofumofukotocoin.txt";
+////                            pool_stats.setText("●Koto Pool Stats");
+////                            break;
+////                        case "MOFUMOFU-SUSU":
+////                            serveraddress ="https://susu.mofumofu.me";
+////                            Currency ="susucoin";
+////                            fileName = "Mofumofususucoin.txt";
+////                            pool_stats.setText("●Susu Pool Stats");
+////                            break;
+//                    }
+//                //保存してあるアドレスがあれば読み込んで表示する
+//                String str = readFile(fileName);
+//                if (str != null) {
+//                    textView.setText(str);
+//                    editText.setText(str);
+//                } else {
+//                    textView.setText(R.string.read_error);
+//                    editText.setText("");
+//                    HashHistorys = null;
+
+//                }
+                // エディットテキストのテキストを取得
+//                text = editText.getText().toString();
+//                GetJsonData();
+//            }
+
+//            //　アイテムが選択されなかった
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                //
+//            }
+//        });
 
         textDiffData = findViewById(R.id.textDiffData);
         textHashData = findViewById(R.id.textHashData);

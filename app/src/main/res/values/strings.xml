@@ -34,6 +34,11 @@
         <item>MacyanPool</item>
         <item>MOFUMOFUPool</item>
     </string-array>
+    <string-array name="currencylist">
+        <item>ZENY</item>
+        <item>MONA</item>
+        <item>BELL</item>
+    </string-array>
 
 
     <!--<string name="menu_item5">アクティビティ5</string>-->

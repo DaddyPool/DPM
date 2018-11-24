@@ -206,6 +206,56 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 }
 
         });
+
+        spC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                Spinner spinner = (Spinner) parent;
+                adapterCurrency.clear();
+
+                // 選択されたアイテムを取得します
+                String item = (String) spinner.getSelectedItem();
+                if (item.equals("DaddyPool")){
+                    serveraddress ="http://zny.daddy-pool.work";
+                    Currency ="bitzeny";
+                    fileName = "Daddybitzeny.txt";
+                    pool_stats.setText("●Bitzeny Pool Stats");
+                }else if (item.equals("MacyanPool")){
+                    serveraddress ="http://macyan.net:8080";
+                    Currency ="bellcoin";
+                    fileName = "Macyanbellcoin.txt";
+                }else if (item.equals("MOFUMOFU")){
+                    serveraddress ="https://koto.mofumofu.me";
+                    Currency ="koto";
+                    fileName = "Mofumofukotocoin.txt";
+                    pool_stats.setText("●Koto Pool Stats");
+                }
+
+
+                //保存してあるアドレスがあれば読み込んで表示する
+                String str = readFile(fileName);
+                if (str != null) {
+                    textView.setText(str);
+                    editText.setText(str);
+                } else {
+                    textView.setText(R.string.read_error);
+                    editText.setText("");
+                    HashHistorys = null;
+
+                }
+                // エディットテキストのテキストを取得
+                text = editText.getText().toString();
+                GetJsonData();
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+
+        });
         // 通貨用
 //        spC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override

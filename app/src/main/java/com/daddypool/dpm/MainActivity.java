@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String serveraddress ="http://zny.daddy-pool.work";
     private String Currency ="bitzeny";
     private String NoData ="NoData";
+    private String selectsever;
+    private String selectcurrency;
 
 
     // サーバー選択肢
@@ -214,22 +216,40 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 Spinner spinner2 = (Spinner) parent;
 
                 // 選択されたアイテムを取得します
-                String item = (String) spinner2.getSelectedItem();
-                if (item.equals("ZENY")){
+                String item1 = (String) spS.getSelectedItem();
+                String item2 = (String) spC.getSelectedItem();
+                if (item1.equals("DaddyPool") && item2.equals("ZENY") ){
                     serveraddress ="http://zny.daddy-pool.work";
                     Currency ="bitzeny";
                     fileName = "Daddybitzeny.txt";
-//                    pool_stats.setText("●Bitzeny Pool Stats");
-                }else if (item.equals("BELL")){
+ //                   pool_stats.setText("●Bitzeny Pool Stats");
+                }else if (item1.equals("MacyanPool") && item2.equals("ZENY") ){
+                    serveraddress ="http://macyan.net:8080";
+                    Currency ="bitzeny";
+                    fileName = "Macyanbitzeny.txt";
+ //                   pool_stats.setText("●Bitzeny Pool Stats");
+                }else if (item1.equals("MacyanPool") && item2.equals("BELL") ){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="bellcoin";
                     fileName = "Macyanbellcoin.txt";
-                }else if (item.equals("KOTO")){
-                    serveraddress ="https://koto.mofumofu.me";
-                    Currency ="koto";
-                    fileName = "Mofumofukotocoin.txt";
-                    pool_stats.setText("●Koto Pool Stats");
+ //                   pool_stats.setText("●Bellcoin Pool Stats");
+
                 }
+//                if (item1.equals("ZENY")){
+//                    serveraddress ="http://zny.daddy-pool.work";
+//                    Currency ="bitzeny";
+//                    fileName = "Daddybitzeny.txt";
+////                    pool_stats.setText("●Bitzeny Pool Stats");
+//                }else if (item1.equals("BELL")){
+//                    serveraddress ="http://macyan.net:8080";
+//                    Currency ="bellcoin";
+//                    fileName = "Macyanbellcoin.txt";
+//                }else if (item1.equals("KOTO")){
+//                    serveraddress ="https://koto.mofumofu.me";
+//                    Currency ="koto";
+//                    fileName = "Mofumofukotocoin.txt";
+//                    pool_stats.setText("●Koto Pool Stats");
+//                }
 
 
                 //保存してあるアドレスがあれば読み込んで表示する
@@ -255,6 +275,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
 
         });
+
+
+
+
+
         // 通貨用
 //        spC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override

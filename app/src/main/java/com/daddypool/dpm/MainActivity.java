@@ -232,8 +232,27 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     serveraddress ="http://macyan.net:8080";
                     Currency ="bellcoin";
                     fileName = "Macyanbellcoin.txt";
- //                   pool_stats.setText("●Bellcoin Pool Stats");
-
+//                   pool_stats.setText("●Bellcoin Pool Stats");
+                }else if (item1.equals("MacyanPool") && item2.equals("MONA") ){
+                    serveraddress ="http://macyan.net:8080";
+                    Currency ="monacoin";
+                    fileName = "Macyanmonacoin.txt";
+//                      pool_stats.setText("●Monacoin Pool Stats");
+                }else if (item1.equals("MOFUMOFU") && item2.equals("ZENY") ){
+                    serveraddress ="https://zny.mofumofu.me";
+                    Currency ="bitzeny";
+                    fileName = "Mofumofubitzeny.txt";
+//                            pool_stats.setText("●Bitzeny Pool Stats");
+                }else if (item1.equals("MOFUMOFU") && item2.equals("KOTO") ){
+                    serveraddress ="https://koto.mofumofu.me";
+                    Currency ="koto";
+                    fileName = "Mofumofukotocoin.txt";
+//                            pool_stats.setText("●Koto Pool Stats");
+                }else if (item1.equals("MOFUMOFU") && item2.equals("SUSU") ){
+                    serveraddress ="https://susu.mofumofu.me";
+                    Currency ="susucoin";
+                    fileName = "Mofumofususucoin.txt";
+//                            pool_stats.setText("●Susu Pool Stats");
                 }
 //                if (item1.equals("ZENY")){
 //                    serveraddress ="http://zny.daddy-pool.work";

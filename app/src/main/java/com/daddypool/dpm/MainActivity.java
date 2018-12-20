@@ -5,6 +5,7 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import android.widget.Spinner;
 
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+
 //<<グラフ追加
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<JSONObject> {
@@ -93,12 +97,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private int[] [] HashHistorys = null;
     private int MaxHash;
     private int MinHash;
+    private SharedPreferences Lastselect;
+    private int serverindex;
+    private int currencyindex;
     private String[] addresslist;
     private String serveraddress ="http://zny.daddy-pool.work";
     private String Currency ="bitzeny";
     private String NoData ="NoData";
-    private String selectsever;
-    private String selectcurrency;
+    private String lastselectserver = "lastselect.txt";
+    private String selectcurrency  ="ZENY";
 
 
     // サーバー選択肢
@@ -134,6 +141,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         MobileAds.initialize(this, "ca-app-pub-3125769458134434~5664139191");
         //<<  広告用
 
+
+
         //通貨選択用
 //        final Spinner spinnerCurrency = findViewById(R.id.spinnercurrency);
         // ArrayAdapter
@@ -148,6 +157,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 android.R.layout.simple_spinner_item);
         adapterCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        //前回選択したサーバーデータを読み込む
+        SharedPreferences Lastselect = getSharedPreferences("Lastselect", MODE_PRIVATE);
+        serverindex = Lastselect.getInt("serverindex", 0);
+        currencyindex = Lastselect.getInt("currencyindex", 0);
+
+
         //項目の追加
         adapterserver.add("DaddyPool");
         adapterserver.add("MacyanPool");
@@ -158,6 +173,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         //アダプターのセット
         spS.setAdapter(adapterserver);
+
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerserver);
+        spinner.setSelection(serverindex);
+
+
 
         //スピナーの内容選択時に呼び出されるコールバックリスナーを登録
         spS.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -183,8 +203,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     adapterCurrency.add("SUSU");
                     spC.setAdapter(adapterCurrency);
                     }
+                spC.setSelection(currencyindex);
+                if(item.equals("DaddyPool")){
+                    spC.setSelection(0);
+                }
 
-                    
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);
                 if (str != null) {
@@ -199,8 +222,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 // エディットテキストのテキストを取得
                 text = editText.getText().toString();
                 GetJsonData();
-
-
             }
 
             @Override
@@ -214,6 +235,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 Spinner spinner2 = (Spinner) parent;
+
 
                 // 選択されたアイテムを取得します
                 String item1 = (String) spS.getSelectedItem();
@@ -254,22 +276,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     fileName = "Mofumofususucoin.txt";
 //                            pool_stats.setText("●Susu Pool Stats");
                 }
-//                if (item1.equals("ZENY")){
-//                    serveraddress ="http://zny.daddy-pool.work";
-//                    Currency ="bitzeny";
-//                    fileName = "Daddybitzeny.txt";
-////                    pool_stats.setText("●Bitzeny Pool Stats");
-//                }else if (item1.equals("BELL")){
-//                    serveraddress ="http://macyan.net:8080";
-//                    Currency ="bellcoin";
-//                    fileName = "Macyanbellcoin.txt";
-//                }else if (item1.equals("KOTO")){
-//                    serveraddress ="https://koto.mofumofu.me";
-//                    Currency ="koto";
-//                    fileName = "Mofumofukotocoin.txt";
-//                    pool_stats.setText("●Koto Pool Stats");
-//                }
-
 
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);
@@ -294,6 +300,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
 
         });
+
 
 
 
@@ -480,6 +487,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // エディットテキストのテキストを取得
         text = editText.getText().toString();
 
+
         // JSONの取得
         GetJsonData();
 
@@ -500,6 +508,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 GetJsonData();
 
                 saveFile(fileName, text);
+
+                //最後に選択したサーバーと通貨の情報を保存
+                Spinner spinner = (Spinner)findViewById(R.id.spinnerserver);
+                Spinner spinner2 = (Spinner)findViewById(R.id.spinnercurrency);
+                // 選択されているアイテムのIndexを取得
+                serverindex = spinner.getSelectedItemPosition();
+                currencyindex = spinner.getSelectedItemPosition();
+                SharedPreferences Lastselect = getSharedPreferences("Lastselect", MODE_PRIVATE);
+                Editor editor = Lastselect.edit();
+                // Key: input, value: text
+                editor.putInt("serverindex", serverindex);
+                editor.putInt("currencyindex", currencyindex);
+                //editor.commit();
+                editor.apply();
+
                 if(text.length() == 0){
                     textView.setText(R.string.no_text);
                 }
@@ -655,6 +678,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoadFinished(Loader<JSONObject> loader, JSONObject data) {
         String addressname = "";
+
         if (data != null) {
             try {
                 //MyData の表示

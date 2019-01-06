@@ -167,11 +167,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         adapterserver.add("DaddyPool");
         adapterserver.add("MacyanPool");
         adapterserver.add("MOFUMOFU");
-        adapterserver.add("みんなのプール");
-        adapterserver.add("SEMI-POOL");
-        adapterserver.add("人のプール");
         adapterserver.add("NOMP.ZNY.powerpool");
+        adapterserver.add("SEMI-POOL");
+        adapterserver.add("みんなのプール");
         adapterserver.add("採掘だよ！全員集合！");
+        adapterserver.add("人のプール");
 
         final Spinner spS=(Spinner)findViewById(R.id.spinnerserver);
         final Spinner spC=(Spinner)findViewById(R.id.spinnercurrency);

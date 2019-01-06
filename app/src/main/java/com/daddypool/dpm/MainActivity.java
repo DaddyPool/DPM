@@ -209,35 +209,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     spC.setAdapter(adapterCurrency);
                 }else if (item.equals("みんなのプール")){
                     adapterCurrency.add("ZENY");
+                    adapterCurrency.add("BELL");
+                    adapterCurrency.add("KOTO");
+                    adapterCurrency.add("MONA");
                     spC.setAdapter(adapterCurrency);
                 }else if (item.equals("SEMI-POOL")){
                     adapterCurrency.add("ZENY");
                     spC.setAdapter(adapterCurrency);
                 }else if (item.equals("人のプール")){
                     adapterCurrency.add("ZENY");
+                    adapterCurrency.add("BELL");
+                    adapterCurrency.add("KOTO");
+                    adapterCurrency.add("MONA");
                     spC.setAdapter(adapterCurrency);
                 }else if (item.equals("NOMP.ZNY.powerpool")){
                     adapterCurrency.add("ZENY");
                     spC.setAdapter(adapterCurrency);
                 }else if (item.equals("採掘だよ！全員集合！")){
                     adapterCurrency.add("ZENY");
+                    adapterCurrency.add("MONA");
                     spC.setAdapter(adapterCurrency);
                 }
 
-                spC.setSelection(currencyindex);
-                if(item.equals("DaddyPool")) {
-                    spC.setSelection(0);
-                }else if (item.equals("みんなのプール")){
-                    spC.setSelection(0);
-                }else if (item.equals("SEMI-POOL")){
-                    spC.setSelection(0);
-                }else if (item.equals("人のプール")){
-                    spC.setSelection(0);
-                }else if (item.equals("NOMP.ZNY.powerpool")){
-                    spC.setSelection(0);
-                }else if (item.equals("採掘だよ！全員集合！")){
-                    spC.setSelection(0);
-                }
+                spC.setSelection(0);
                 //保存してあるアドレスがあれば読み込んで表示する
                 String str = readFile(fileName);
                 if (str != null) {
@@ -274,57 +268,85 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     serveraddress ="http://zny.daddy-pool.work";
                     Currency ="bitzeny";
                     fileName = "Daddybitzeny.txt";
- //                   pool_stats.setText("●Bitzeny Pool Stats");
+
                 }else if (item1.equals("MacyanPool") && item2.equals("ZENY") ){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="bitzeny";
                     fileName = "Macyanbitzeny.txt";
- //                   pool_stats.setText("●Bitzeny Pool Stats");
                 }else if (item1.equals("MacyanPool") && item2.equals("BELL") ){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="bellcoin";
                     fileName = "Macyanbellcoin.txt";
-//                   pool_stats.setText("●Bellcoin Pool Stats");
                 }else if (item1.equals("MacyanPool") && item2.equals("MONA") ){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="monacoin";
                     fileName = "Macyanmonacoin.txt";
-//                      pool_stats.setText("●Monacoin Pool Stats");
+
                 }else if (item1.equals("MOFUMOFU") && item2.equals("ZENY") ){
                     serveraddress ="https://zny.mofumofu.me";
                     Currency ="bitzeny";
                     fileName = "Mofumofubitzeny.txt";
-//                            pool_stats.setText("●Bitzeny Pool Stats");
                 }else if (item1.equals("MOFUMOFU") && item2.equals("KOTO") ){
                     serveraddress ="https://koto.mofumofu.me";
                     Currency ="koto";
                     fileName = "Mofumofukotocoin.txt";
-//                            pool_stats.setText("●Koto Pool Stats");
-                }else if (item1.equals("MOFUMOFU") && item2.equals("SUSU") ){
-                    serveraddress ="https://susu.mofumofu.me";
-                    Currency ="susucoin";
-                    fileName = "Mofumofususucoin.txt";
-//                            pool_stats.setText("●Susu Pool Stats");
+//                }else if (item1.equals("MOFUMOFU") && item2.equals("SUSU") ){
+//                    serveraddress ="https://susu.mofumofu.me";
+//                    Currency ="susucoin";
+//                    fileName = "Mofumofususucoin.txt";
+
                 }else if (item1.equals("みんなのプール") && item2.equals("ZENY") ){
                     serveraddress ="https://www.minnano-pool.work";
                     Currency ="bitzeny";
                     fileName = "Minnabitzeny.txt";
+                }else if (item1.equals("みんなのプール") && item2.equals("MONA") ){
+                    serveraddress ="https://www.minnano-pool.work";
+                    Currency ="monacoin";
+                    fileName = "Minnamonacoin.txt";
+                }else if (item1.equals("みんなのプール") && item2.equals("BELL") ){
+                    serveraddress ="https://www.minnano-pool.work";
+                    Currency ="bellcoin";
+                    fileName = "Minnabellcoin.txt";
+                }else if (item1.equals("みんなのプール") && item2.equals("KOTO") ){
+                    serveraddress ="https://www.minnano-pool.work";
+                    Currency ="koto";
+                    fileName = "Minnakotocoin.txt";
+
                 }else if (item1.equals("SEMI-POOL") && item2.equals("ZENY") ){
                     serveraddress ="https://zny.semi-pool.com";
                     Currency ="bitzeny";
                     fileName = "Semibitzeny.txt";
+
                 }else if (item1.equals("人のプール") && item2.equals("ZENY") ){
                     serveraddress ="https://mining.zinntikumugai.xyz";
                     Currency ="bitzeny";
                     fileName = "Hitobitzeny.txt";
+                }else if (item1.equals("人のプール") && item2.equals("BELL") ){
+                    serveraddress ="https://mining.zinntikumugai.xyz";
+                    Currency ="bitzeny";
+                    fileName = "Hitobellcoin.txt";
+                }else if (item1.equals("人のプール") && item2.equals("MONA") ){
+                    serveraddress ="https://mining.zinntikumugai.xyz";
+                    Currency ="monacoin";
+                    fileName = "Hitomonacoin.txt";
+                }else if (item1.equals("人のプール") && item2.equals("KOTO") ){
+                    serveraddress ="https://mining.zinntikumugai.xyz";
+                    Currency ="koto";
+                    fileName = "Hitokotocoin.txt";
+
                 }else if (item1.equals("NOMP.ZNY.powerpool") && item2.equals("ZENY") ){
                     serveraddress ="https://nomp.zny.powerpool.jp";
                     Currency ="bitzeny";
                     fileName = "powerpoolbitzeny.txt";
+
                 }else if (item1.equals("採掘だよ！全員集合！") && item2.equals("ZENY") ){
                     serveraddress ="http://letsminezny.orz.hm:8080";
                     Currency ="bitzeny";
                     fileName = "Zeninbitzeny.txt";
+                }else if (item1.equals("採掘だよ！全員集合！") && item2.equals("MONA") ){
+                    serveraddress ="http://letsminezny.orz.hm:8080";
+                    Currency ="monacoin";
+                    fileName = "Zeninmonacoin.txt";
                 }
 
                 //保存してあるアドレスがあれば読み込んで表示する

@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 }else if (item.equals("MOFUMOFU")){
                     adapterCurrency.add("ZENY");
                     adapterCurrency.add("KOTO");
-                    adapterCurrency.add("SUSU");
+//                    adapterCurrency.add("SUSU");
                     spC.setAdapter(adapterCurrency);
                 }else if (item.equals("みんなのプール")){
                     adapterCurrency.add("ZENY");

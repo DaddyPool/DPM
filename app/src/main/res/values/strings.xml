@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">DaddyPoolMonitor</string>
-    <string name="app_ver">DaddyPoolMonitor ver.1.1.3</string>
+    <string name="app_name">BitzenyPoolMonitor</string>
+    <string name="app_ver">BitzenyPoolMonitor ver.1.1.3</string>
     <string name="no_text">"No text !"</string>
     <string name="no_data">"NoData"</string>
     <string name="saved">Saved</string>
@@ -9,7 +9,7 @@
     <string name="QR">QR読取</string>
     <string name="kousin">更新</string>
     <string name="Address">Address</string>
-    <string name="Pool_Stats">●Bitzeny Pool Stats</string>
+    <string name="Pool_Stats">●Pool Stats</string>
     <string name="Pool_StatsM">●Monacoin Pool Stats</string>
     <string name="Pool_StatsB">●Bellcoin Pool Stats</string>
     <string name="MyData">●MyData</string>
@@ -42,7 +42,7 @@
 
 
     <!--<string name="menu_item5">アクティビティ5</string>-->
-    <string name="terms">Daddy Pool Monitor 利用規約\n
+    <string name="terms">BitzenyPoolMonitor 利用規約\n
 \n
         免責事項著作権等\n
 \n
@@ -50,7 +50,7 @@
 \n
 【使用許諾条件】\n
 \n
-プール情報取得アプリ『DaddyPoolMonitor』(以下、本ソフトウエア)は、下記条項にご同意いただいた方にのみご使用いただけます。もしも、同意出来ない場合、本ソフトウェアを使用することは出来ません。使用を中止し、ただちに本ソフトウェアを破棄して下さい。\n
+プール情報取得アプリ『BitzenyPoolMonitor』(以下、本ソフトウエア)は、下記条項にご同意いただいた方にのみご使用いただけます。もしも、同意出来ない場合、本ソフトウェアを使用することは出来ません。使用を中止し、ただちに本ソフトウェアを破棄して下さい。\n
 
 本ソフトウェアを使用された場合は下記条項にご同意のいただけたものとさせていただきます。\n
 

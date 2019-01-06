@@ -319,15 +319,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 }else if (item1.equals("人のプール") && item2.equals("ZENY") ){
                     serveraddress ="https://mining.zinntikumugai.xyz";
-                    Currency ="bitzeny";
+                    Currency ="bitzeny mainnet";
                     fileName = "Hitobitzeny.txt";
                 }else if (item1.equals("人のプール") && item2.equals("BELL") ){
                     serveraddress ="https://mining.zinntikumugai.xyz";
-                    Currency ="bitzeny";
+                    Currency ="bellcoin";
                     fileName = "Hitobellcoin.txt";
                 }else if (item1.equals("人のプール") && item2.equals("MONA") ){
                     serveraddress ="https://mining.zinntikumugai.xyz";
-                    Currency ="monacoin";
+                    Currency ="monacoin_mainnet";
                     fileName = "Hitomonacoin.txt";
                 }else if (item1.equals("人のプール") && item2.equals("KOTO") ){
                     serveraddress ="https://mining.zinntikumugai.xyz";
@@ -629,16 +629,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     //JSONからリストを引っ張ってくる処理を入れる
 
                     JSONArray jsonArray = jsonObject.getJSONObject(Currency).getJSONObject("workers").names();
-                    addresslist = new String[jsonArray.length()];
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        addresslist[i] = jsonArray.getString(i);
-                    }
-                    final AutoCompleteTextView editText = (AutoCompleteTextView) findViewById(R.id.editText);
-                    // ArrayAdapterを作成
-                    if (addresslist != null){
-                        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, addresslist);
-                        // ViewにAdapterを設定
-                        editText.setAdapter(adapter);
+                    if (jsonArray != null){
+                        addresslist = new String[jsonArray.length()];
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            addresslist[i] = jsonArray.getString(i);
+                        }
+                        final AutoCompleteTextView editText = (AutoCompleteTextView) findViewById(R.id.editText);
+                        // ArrayAdapterを作成
+                        if (addresslist != null){
+                            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, addresslist);
+                            // ViewにAdapterを設定
+                            editText.setAdapter(adapter);
+                        }
                     }
 
                 }

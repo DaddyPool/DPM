@@ -164,10 +164,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
         //項目の追加
-        adapterserver.add("DaddyPool");
-        adapterserver.add("MacyanPool");
-        adapterserver.add("MOFUMOFU");
-        adapterserver.add("NOMP.ZNY.powerpool");
+        adapterserver.add("Daddy-Pool");
+        adapterserver.add("MACYAN.NET MINING-POOL");
+        adapterserver.add("MOFUMOFU.ME");
+        adapterserver.add("NOMP.ZNY.POWERPOOL");
         adapterserver.add("SEMI-POOL");
         adapterserver.add("みんなのプール");
         adapterserver.add("採掘だよ！全員集合！");
@@ -194,15 +194,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 // 選択されたアイテムを取得します
                 String item = (String) spinner.getSelectedItem();
-                if (item.equals("DaddyPool")){
+                if (item.equals("Daddy-Pool")){
                     adapterCurrency.add("ZENY");
                     spC.setAdapter(adapterCurrency);
-                }else if (item.equals("MacyanPool")){
+                }else if (item.equals("MACYAN.NET MINING-POOL")){
                     adapterCurrency.add("ZENY");
                     adapterCurrency.add("BELL");
                     adapterCurrency.add("MONA");
                     spC.setAdapter(adapterCurrency);
-                }else if (item.equals("MOFUMOFU")){
+                }else if (item.equals("MOFUMOFU.ME")){
                     adapterCurrency.add("ZENY");
                     adapterCurrency.add("KOTO");
 //                    adapterCurrency.add("SUSU");
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     adapterCurrency.add("KOTO");
                     adapterCurrency.add("MONA");
                     spC.setAdapter(adapterCurrency);
-                }else if (item.equals("NOMP.ZNY.powerpool")){
+                }else if (item.equals("NOMP.ZNY.POWERPOOL")){
                     adapterCurrency.add("ZENY");
                     spC.setAdapter(adapterCurrency);
                 }else if (item.equals("採掘だよ！全員集合！")){
@@ -264,29 +264,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 // 選択されたアイテムを取得します
                 String item1 = (String) spS.getSelectedItem();
                 String item2 = (String) spC.getSelectedItem();
-                if (item1.equals("DaddyPool") && item2.equals("ZENY") ){
+                if (item1.equals("Daddy-Pool") && item2.equals("ZENY") ){
                     serveraddress ="http://zny.daddy-pool.work";
                     Currency ="bitzeny";
                     fileName = "Daddybitzeny.txt";
 
-                }else if (item1.equals("MacyanPool") && item2.equals("ZENY") ){
+                }else if (item1.equals("MACYAN.NET MINING-POOL") && item2.equals("ZENY") ){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="bitzeny";
                     fileName = "Macyanbitzeny.txt";
-                }else if (item1.equals("MacyanPool") && item2.equals("BELL") ){
+                }else if (item1.equals("MACYAN.NET MINING-POOL") && item2.equals("BELL") ){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="bellcoin";
                     fileName = "Macyanbellcoin.txt";
-                }else if (item1.equals("MacyanPool") && item2.equals("MONA") ){
+                }else if (item1.equals("MACYAN.NET MINING-POOL") && item2.equals("MONA") ){
                     serveraddress ="http://macyan.net:8080";
                     Currency ="monacoin";
                     fileName = "Macyanmonacoin.txt";
 
-                }else if (item1.equals("MOFUMOFU") && item2.equals("ZENY") ){
+                }else if (item1.equals("MOFUMOFU.ME") && item2.equals("ZENY") ){
                     serveraddress ="https://zny.mofumofu.me";
                     Currency ="bitzeny";
                     fileName = "Mofumofubitzeny.txt";
-                }else if (item1.equals("MOFUMOFU") && item2.equals("KOTO") ){
+                }else if (item1.equals("MOFUMOFU.ME") && item2.equals("KOTO") ){
                     serveraddress ="https://koto.mofumofu.me";
                     Currency ="koto";
                     fileName = "Mofumofukotocoin.txt";
@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     Currency ="koto";
                     fileName = "Hitokotocoin.txt";
 
-                }else if (item1.equals("NOMP.ZNY.powerpool") && item2.equals("ZENY") ){
+                }else if (item1.equals("NOMP.ZNY.POWERPOOL") && item2.equals("ZENY") ){
                     serveraddress ="https://nomp.zny.powerpool.jp";
                     Currency ="bitzeny";
                     fileName = "powerpoolbitzeny.txt";

@@ -512,7 +512,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             //読み取った情報を入力テキストへセット
             qrAddress.trim();
 //            editText.setText( qrAddress.substring(8,42));
-            editText.setText( qrAddress.substring(0,34));
+            
+            //前方一致でKOTOの場合は35ｹﾀ　それ以外は34ｹﾀに
+            if(qrAddress.startsWith("k")) {
+                editText.setText( qrAddress.substring(0,35));
+            } else {
+                editText.setText(qrAddress.substring(0, 34));
+            }
             Log.d("readQR", qrAddress);
         } else {
             super.onActivityResult(requestCode, resultCode, data);

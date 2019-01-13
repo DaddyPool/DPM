@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BitzenyPoolMonitor</string>
-    <string name="app_ver">BitzenyPoolMonitor ver.1.1.3</string>
+    <string name="app_ver">BitzenyPoolMonitor ver.2.0.0</string>
     <string name="no_text">"No text !"</string>
     <string name="no_data">"NoData"</string>
     <string name="saved">Saved</string>
@@ -46,7 +46,7 @@
 \n
         免責事項著作権等\n
 \n
-2018/08/30\n
+2019/01/10\n
 \n
 【使用許諾条件】\n
 \n

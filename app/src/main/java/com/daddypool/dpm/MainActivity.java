@@ -86,9 +86,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView textWorkersData;
     private TextView textMinerData;
     private TextView textHashu;
-//    private TextView textLuckDayData;
-//    private TextView textLuckHoursData;
-//    private TextView textSharesData;
     private TextView pool_stats;
     private EditText editText;
     private String fileName = "Address.txt";
@@ -108,11 +105,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String selectcurrency  ="ZENY";
 
 
-    // サーバー選択肢
-//    private String spinnerItems[] = {"DaddyPool", "MacyanPool-ZENY","MacyanPool-BELL","MacyanPool-MONA","MOFUMOFU-ZENY","MOFUMOFU-KOTO","MOFUMOFU-SUSU"};
-    //private String spinnerItems[] = {"DaddyPool", "MacyanPool","MOFUMOFU"};
-    // 通貨選択肢
-    //private String spinnerItemsC[] = {"ZENY", "MONA","BELL"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -264,89 +256,91 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 // 選択されたアイテムを取得します
                 String item1 = (String) spS.getSelectedItem();
                 String item2 = (String) spC.getSelectedItem();
-                if (item1.equals("Daddy-Pool") && item2.equals("ZENY") ){
+                if (item1.equals("Daddy-Pool")){
                     serveraddress ="http://zny.daddy-pool.work";
-                    Currency ="bitzeny";
-                    fileName = "Daddybitzeny.txt";
+                    if (item2.equals("ZENY")) {
+                        Currency = "bitzeny";
+                        fileName = "Daddybitzeny.txt";
+                    }
 
-                }else if (item1.equals("MACYAN.NET MINING-POOL") && item2.equals("ZENY") ){
+                }else if (item1.equals("MACYAN.NET MINING-POOL")){
                     serveraddress ="http://macyan.net:8080";
-                    Currency ="bitzeny";
-                    fileName = "Macyanbitzeny.txt";
-                }else if (item1.equals("MACYAN.NET MINING-POOL") && item2.equals("BELL") ){
-                    serveraddress ="http://macyan.net:8080";
-                    Currency ="bellcoin";
-                    fileName = "Macyanbellcoin.txt";
-                }else if (item1.equals("MACYAN.NET MINING-POOL") && item2.equals("MONA") ){
-                    serveraddress ="http://macyan.net:8080";
-                    Currency ="monacoin";
-                    fileName = "Macyanmonacoin.txt";
+                    if (item2.equals("ZENY") ) {
+                        Currency = "bitzeny";
+                        fileName = "Macyanbitzeny.txt";
+                    }else if (item2.equals("BELL") ){
+                        Currency ="bellcoin";
+                        fileName = "Macyanbellcoin.txt";
+                    }else if (item2.equals("MONA") ) {
+                        Currency = "monacoin";
+                        fileName = "Macyanmonacoin.txt";
+                    }
 
-                }else if (item1.equals("MOFUMOFU.ME") && item2.equals("ZENY") ){
+                }else if (item1.equals("MOFUMOFU.ME")){
                     serveraddress ="https://zny.mofumofu.me";
-                    Currency ="bitzeny";
-                    fileName = "Mofumofubitzeny.txt";
-                }else if (item1.equals("MOFUMOFU.ME") && item2.equals("KOTO") ){
-                    serveraddress ="https://koto.mofumofu.me";
-                    Currency ="koto";
-                    fileName = "Mofumofukotocoin.txt";
-//                }else if (item1.equals("MOFUMOFU") && item2.equals("SUSU") ){
-//                    serveraddress ="https://susu.mofumofu.me";
-//                    Currency ="susucoin";
-//                    fileName = "Mofumofususucoin.txt";
+                    if (item2.equals("ZENY") ) {
+                        Currency = "bitzeny";
+                        fileName = "Mofumofubitzeny.txt";
+                    }else if (item2.equals("KOTO") ) {
+                        Currency = "koto";
+                        fileName = "Mofumofukotocoin.txt";
+                    }
 
-                }else if (item1.equals("みんなのプール") && item2.equals("ZENY") ){
+                }else if (item1.equals("みんなのプール")){
                     serveraddress ="https://www.minnano-pool.work";
-                    Currency ="bitzeny";
-                    fileName = "Minnabitzeny.txt";
-                }else if (item1.equals("みんなのプール") && item2.equals("MONA") ){
-                    serveraddress ="https://www.minnano-pool.work";
-                    Currency ="monacoin";
-                    fileName = "Minnamonacoin.txt";
-                }else if (item1.equals("みんなのプール") && item2.equals("BELL") ){
-                    serveraddress ="https://www.minnano-pool.work";
-                    Currency ="bellcoin";
-                    fileName = "Minnabellcoin.txt";
-                }else if (item1.equals("みんなのプール") && item2.equals("KOTO") ){
-                    serveraddress ="https://www.minnano-pool.work";
-                    Currency ="koto";
-                    fileName = "Minnakotocoin.txt";
+                    if (item2.equals("ZENY") ) {
+                        Currency = "bitzeny";
+                        fileName = "Minnabitzeny.txt";
+                    }else if (item2.equals("MONA") ) {
+                        Currency = "monacoin";
+                        fileName = "Minnamonacoin.txt";
+                    }else if (item2.equals("BELL") ) {
+                        Currency = "bellcoin";
+                        fileName = "Minnabellcoin.txt";
+                    }else if (item2.equals("KOTO") ) {
+                        Currency = "koto";
+                        fileName = "Minnakotocoin.txt";
+                    }
 
-                }else if (item1.equals("SEMI-POOL") && item2.equals("ZENY") ){
+                }else if (item1.equals("SEMI-POOL")){
                     serveraddress ="https://zny.semi-pool.com";
-                    Currency ="bitzeny";
-                    fileName = "Semibitzeny.txt";
+                    if (item2.equals("ZENY")) {
+                        Currency = "bitzeny";
+                        fileName = "Semibitzeny.txt";
+                    }
 
-                }else if (item1.equals("人のプール") && item2.equals("ZENY") ){
+                }else if (item1.equals("人のプール")){
                     serveraddress ="https://mining.zinntikumugai.xyz";
-                    Currency ="bitzeny mainnet";
-                    fileName = "Hitobitzeny.txt";
-                }else if (item1.equals("人のプール") && item2.equals("BELL") ){
-                    serveraddress ="https://mining.zinntikumugai.xyz";
-                    Currency ="bellcoin";
-                    fileName = "Hitobellcoin.txt";
-                }else if (item1.equals("人のプール") && item2.equals("MONA") ){
-                    serveraddress ="https://mining.zinntikumugai.xyz";
-                    Currency ="monacoin_mainnet";
-                    fileName = "Hitomonacoin.txt";
-                }else if (item1.equals("人のプール") && item2.equals("KOTO") ){
-                    serveraddress ="https://mining.zinntikumugai.xyz";
-                    Currency ="koto";
-                    fileName = "Hitokotocoin.txt";
+                    if (item2.equals("ZENY")) {
+                        Currency = "bitzeny mainnet";
+                        fileName = "Hitobitzeny.txt";
+                    }else if (item2.equals("BELL") ) {
+                        Currency = "bellcoin";
+                        fileName = "Hitobellcoin.txt";
+                    }else if (item2.equals("MONA") ) {
+                        Currency = "monacoin_mainnet";
+                        fileName = "Hitomonacoin.txt";
+                    }else if (item2.equals("KOTO") ) {
+                        Currency = "koto";
+                        fileName = "Hitokotocoin.txt";
+                    }
 
-                }else if (item1.equals("NOMP.ZNY.POWERPOOL") && item2.equals("ZENY") ){
+                }else if (item1.equals("NOMP.ZNY.POWERPOOL")){
                     serveraddress ="https://nomp.zny.powerpool.jp";
-                    Currency ="bitzeny";
-                    fileName = "powerpoolbitzeny.txt";
+                    if (item2.equals("ZENY") ) {
+                        Currency = "bitzeny";
+                        fileName = "powerpoolbitzeny.txt";
+                    }
 
-                }else if (item1.equals("採掘だよ！全員集合！") && item2.equals("ZENY") ){
+                }else if (item1.equals("採掘だよ！全員集合！")){
                     serveraddress ="http://letsminezny.orz.hm:8080";
-                    Currency ="bitzeny";
-                    fileName = "Zeninbitzeny.txt";
-                }else if (item1.equals("採掘だよ！全員集合！") && item2.equals("MONA") ){
-                    serveraddress ="http://letsminezny.orz.hm:8080";
-                    Currency ="monacoin";
-                    fileName = "Zeninmonacoin.txt";
+                    if (item2.equals("ZENY")) {
+                        Currency = "bitzeny";
+                        fileName = "Zeninbitzeny.txt";
+                    }else if (item2.equals("MONA") ) {
+                        Currency = "monacoin";
+                        fileName = "Zeninmonacoin.txt";
+                    }
                 }
 
                 //保存してあるアドレスがあれば読み込んで表示する
@@ -569,19 +563,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String urlText = "";
         //MyData 用Json取得　API（http://zny.daddy-pool.work/api/worker_stats?）
         if (id == 1){
-//         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
-//            urlText = "http://zny.daddy-pool.work/api/worker_stats?"+ text ;
             urlText = serveraddress+"/api/worker_stats?"+ text ;
         }
 
         //PoolStats 用Json取得　API（http://zny.daddy-pool.work/api/stats）
         if (id == 2){
-//            urlText = "http://zny.daddy-pool.work/api/stats";
             urlText = serveraddress+"/api/stats";
         }
         //グラフ 用Json取得　API（http://zny.daddy-pool.work/api/worker_stats?）
         if (id == 3){
-//         urlText = "http://zny.daddy-pool.work/api/worker_stats?ZfYHAhLooYjJDUtKmzqA1ybkmVgz1Vimxe";
             urlText = serveraddress+"/api/worker_stats?"+ text ;
         }
 
@@ -608,18 +598,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         textHashData.setText(NoData);
                         textBalData.setText(NoData);
                         textPaidData.setText(NoData);
-//                        textLuckDayData.setText("NoData");
-//                        textLuckHoursData.setText("NoData");
-//                        textSharesData.setText("NoData");
                     }else{
                         addressname = text.replace("\"", "").replace("[","").replace("]","");
                         textDiffData.setText(jsonObject.getJSONObject(addressname).getString("diff"));
                         textHashData.setText(jsonObject.getJSONObject(addressname).getString("hashrateString"));
                         textBalData.setText(jsonObject.getJSONObject(addressname).getString("balance"));
                         textPaidData.setText(jsonObject.getJSONObject(addressname).getString("paid"));
-//                    textLuckDayData.setText(jsonObject.getJSONObject(addressname).getString("luckDays"));
-//                    textLuckHoursData.setText(jsonObject.getJSONObject(addressname).getString("luckHours"));
-//                    textSharesData.setText(jsonObject.getJSONObject(addressname).getString("shares"));
 
                     }
 
@@ -704,10 +688,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             } catch (JSONException e) {
                 Log.d("onLoadFinished","JSONのパースに失敗しました。 JSONException=" + e);
-//                textDiffData.setText("NoData");
-//                textHashData.setText("NoData");
-//                textBalData.setText("NoData");
-//                textPaidData.setText("NoData");
                 setData();
             }
         }else{
@@ -764,20 +744,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
            mChart.invalidate();
        }
 
-//        if (mChart.getData() != null &&
-//                mChart.getData().getDataSetCount() > 0) {
-//
-//            set1 = (LineDataSet) mChart.getData().getDataSetByIndex(0);
-//            set1.setValues(values);
-//            mChart.getData().notifyDataChanged();
-//            mChart.notifyDataSetChanged();
-//            // Y軸最大最小設定
-//            //自分のデータの最大最小プラスマイナス1000としておく
-//            YAxis leftAxis = mChart.getAxisLeft();
-//            leftAxis.setAxisMaximum(MaxHash+1000);
-//            leftAxis.setAxisMinimum(MinHash-1000);
-//        } else {
-//
             // create a dataset and give it a type
             set1 = new LineDataSet(values, "");
 
@@ -858,13 +824,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         new Intent(MainActivity.this, privacy.class);
                 startActivity(varIntent4);
                 return true;
-                //            case R.id.item4:
-//                Intent varIntent4 =
-//                        new Intent(MainActivity.this, Main3Activity.class);
-//                startActivity(varIntent4);
-//                finish();
-//                return true;
-
         }
         return super.onOptionsItemSelected(item);
     }

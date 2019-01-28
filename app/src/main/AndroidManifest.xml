@@ -32,10 +32,6 @@
         <activity android:name=".privacy" />
         <activity android:name=".aboutDPM" />
         <activity android:name=".Terms" />
-        <activity
-            android:name=".Main3Activity"
-            android:label="@string/title_activity_main3"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

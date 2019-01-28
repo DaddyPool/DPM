@@ -27,18 +27,7 @@
     <string name="menu_item1">蛇口</string>
     <string name="menu_item2">ライセンス</string>
     <string name="menu_item3">利用規約</string>
-    <string name="menu_item4">TestVer2.0</string>
     <string name="menu_item5">プライバシーポリシー</string>
-    <string-array name="serverlist">
-        <item>DaddyPool</item>
-        <item>MacyanPool</item>
-        <item>MOFUMOFUPool</item>
-    </string-array>
-    <string-array name="currencylist">
-        <item>ZENY</item>
-        <item>MONA</item>
-        <item>BELL</item>
-    </string-array>
 
 
     <!--<string name="menu_item5">アクティビティ5</string>-->
@@ -89,11 +78,5 @@
 本ソフトウエアに関する著作権その他の全ての権利は該当の作者に帰属します。\n
 
 本ソフトウェア及び内容物は、著作権法及び国際著作権条約をはじめ、財産権、所有権、知的財産権、その他の無体財産権に関する法律ならびに条約によって保護されています。\n</string>
-    <string name="title_activity_main3">Main3Activity</string>
-    <string name="tab_text_1">Main</string>
-    <string name="tab_text_2">なにか</string>
-    <string name="tab_text_3">設定</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="Address_select">Address: %1$d</string>
+
 </resources>

@@ -111,7 +111,9 @@
                 <View
                     android:layout_width="160dp"
                     android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
                     android:background="@android:color/holo_red_dark"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textPoolStats" />
 
                 <TableLayout
@@ -205,7 +207,9 @@
                 <View
                     android:layout_width="160dp"
                     android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
                     android:background="@android:color/holo_blue_bright"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textMyData" />
 
                 <TableLayout
@@ -312,72 +316,6 @@
                             tools:layout_editor_absoluteX="223dp"
                             tools:layout_editor_absoluteY="234dp" />
                     </TableRow>
-
-                    <!--<TableRow-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent">-->
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/textLuckDayTitle"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="LuckDay"-->
-                    <!--android:textColor="@android:color/holo_blue_bright"-->
-                    <!--tools:layout_editor_absoluteX="140dp"-->
-                    <!--tools:layout_editor_absoluteY="250dp" />-->
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/textLuckDayData"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="NoData"-->
-                    <!--tools:layout_editor_absoluteX="225dp"-->
-                    <!--tools:layout_editor_absoluteY="253dp" />-->
-                    <!--</TableRow>-->
-
-                    <!--<TableRow-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent">-->
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/textLuckHoursTitle"-->
-                    <!--android:layout_width="82dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="LuckHours"-->
-                    <!--android:textColor="@android:color/holo_blue_bright"-->
-                    <!--tools:layout_editor_absoluteX="124dp"-->
-                    <!--tools:layout_editor_absoluteY="269dp" />-->
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/textLuckHoursData"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="NoData"-->
-                    <!--tools:layout_editor_absoluteX="223dp"-->
-                    <!--tools:layout_editor_absoluteY="272dp" />-->
-                    <!--</TableRow>-->
-
-                    <!--<TableRow-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent">-->
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/textSharesTitle"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Shares"-->
-                    <!--android:textColor="@android:color/holo_blue_bright"-->
-                    <!--tools:layout_editor_absoluteX="148dp"-->
-                    <!--tools:layout_editor_absoluteY="287dp" />-->
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/textSharesData"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="NoData"-->
-                    <!--tools:layout_editor_absoluteX="223dp"-->
-                    <!--tools:layout_editor_absoluteY="290dp" />-->
-                    <!--</TableRow>-->
                 </TableLayout>
 
                 <TextView

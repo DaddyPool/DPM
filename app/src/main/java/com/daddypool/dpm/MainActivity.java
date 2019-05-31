@@ -312,7 +312,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 }else if (item1.equals("人のプール")){
                     serveraddress ="https://mining.zinntikumugai.xyz";
                     if (item2.equals("ZENY")) {
-                        Currency = "bitzeny mainnet";
+                        Currency = "bitzeny";
                         fileName = "Hitobitzeny.txt";
                     }else if (item2.equals("BELL") ) {
                         Currency = "bellcoin";
